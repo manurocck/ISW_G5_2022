@@ -12,18 +12,18 @@ Instalar NPM que es una herramienta que nos va a permitir realizar instalaciones
  Esta instalación es lenta, puede llegar a tardar 30 minutos
  
  Por último instalar Aangular en su proyecto local
-  - Abren la carpeta " ISW-G5-2022_TP_6 " con Visual Studio Code
-  - Prueban el siguiente comando: 
+  1. Abren la carpeta " ISW-G5-2022_TP_6 " con Visual Studio Code
+  2. Prueban el siguiente comando: 
      - npm install @angular/cli@13
-  - Al terminar ejecutan el siguiente comando: 
+  3. Al terminar ejecutan el siguiente comando: 
      - ng --version
-  - Si les sale lo siguiente esta lsito:
+  4. Si les sale lo siguiente esta lsito:
    ![image](https://user-images.githubusercontent.com/80793450/189001948-163ab79d-9aad-410b-a8e3-088f6003c47c.png)
   
-  - Si no reconoce el comando "ng" y tira error, ejecutar el comando
+  5. Si no reconoce el comando "ng" y tira error, ejecutar el comando
       - npm install -g @angular/cli@13
       
-   - Probar nuevamente el comando 
+   6. Probar nuevamente el comando 
       - ng --version 
    
    Y ya debería funcionar
