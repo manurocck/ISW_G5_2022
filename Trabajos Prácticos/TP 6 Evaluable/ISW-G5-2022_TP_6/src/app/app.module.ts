@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 
-import { PagoEfectivoComponent } from './pago-efectivo/pago-efectivo.component';
+import { PagoEfectivoComponent } from './components/pago-efectivo/pago-efectivo.component';
 import { DireccionEnvioComponent } from './components/direccion-envio/direccion-envio.component';
 
 

@@ -12,4 +12,12 @@ export class PagoEfectivoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cantidadProductosCarrito(){
+    return 5;
+  }
+  
+  totalAPagar(){
+    return 5000;
+  }
+
 }
