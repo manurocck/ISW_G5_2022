@@ -1,41 +1,38 @@
-
-
-
-    <div class="container">
-        <h3>Direccion de envio</h3>
-        <hr>
-        <form name="FormDireccion" class="form-row">
-            <div class="col">
-                <div class="row">
-                    <div class="form-group col-md-7">
-                        <label class="l1" for="calle"> Calle </label>
-                        <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required pattern="[A-Z, a-z]{4,50}">
-                    </div>
-                    <div class="form-group col-md-2 d1">
-                        <label class="l1" for="numero"> Numero </label>
-                        <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required pattern="[0-9]">
-                    </div>
+<div class="container">
+    <h3>Direccion de envio</h3>
+    <hr>
+    <form name="FormDireccion" class="form-row">
+        <div class="col">
+            <div class="row">
+                <div class="form-group col-md-7">
+                    <label class="l1" for="calle"> Calle </label> <!--  -->
+                    <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required pattern="[A-Z, a-z]{4,50}">
                 </div>
-
-                <div class="row">
-                    <div class="form-group col-md-5">
-                        <label class="l1" for="ciudad"> Ciudad </label>
-                        <select class="form-control" name="ciudad" id="ciudad" required>
-                            <option value="cba">Cordoba</option>
-                            <option value="jm">Jesus Maria</option>
-                            <option value="ag">Alta Gracia</option>
-                            <option value="as">Ascochinga</option>
-                            <option value="rc">Rio Ceballos</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-4 d1">
-                        <label class="l1" for="referencia"> Referencia (Opcional) </label>
-                        <textarea class="form-control" placeholder="Referencia" name="referencia" id="referencia" rows="2" ></textarea>
-                        </div>
-                </div>
-                <div>
-                    <button name="siguiente float-end" type="submit" class="btn btn-primary" id="siguiente" > Siguiente</button>
+                <div class="form-group col-md-2 d1">
+                    <label class="l1" for="numero"> Numero </label>
+                    <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required pattern="[0-9]">
                 </div>
             </div>
-        </form>
-    </div>
+
+            <div class="row">
+                <div class="form-group col-md-5">
+                    <label class="l1" for="ciudad"> Ciudad </label>
+                    <select class="form-control" name="ciudad" id="ciudad" required>
+                        <option value="cba">Cordoba</option>
+                        <option value="jm">Jesus Maria</option>
+                        <option value="ag">Alta Gracia</option>
+                        <option value="as">Ascochinga</option>
+                        <option value="rc">Rio Ceballos</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 d1">
+                    <label class="l1" for="referencia"> Referencia (Opcional) </label>
+                    <textarea class="form-control" placeholder="Referencia" name="referencia" id="referencia" rows="2" ></textarea>
+                    </div>
+            </div>
+            <div>
+                <button name="siguiente float-end" type="submit" class="btn btn-primary" id="siguiente" > Siguiente</button>
+            </div>
+        </div>
+    </form>
+</div>
