@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { DireccionEnvioComponent } from './direccion-envio/direccion-envio.component';
+
 import { PagoEfectivoComponent } from './pago-efectivo/pago-efectivo.component';
+import { DireccionEnvioComponent } from './components/direccion-envio/direccion-envio.component';
+
 
 @NgModule({
   declarations: [
