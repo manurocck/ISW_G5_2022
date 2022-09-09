@@ -1,0 +1,35 @@
+.container2{background-color: aquamarine;}
+.container {background-color: burlywood;
+    border: 1px solid gray;
+    margin:0px auto}
+.titulo-plantilla {
+    color: olive 
+    ;}
+
+.btn-selec{ background-color:rgb(249, 137, 72);
+    color: #5d3a00;border: 1px solid #5d3a00;
+width: 10%; height: 5%;cursor:pointer;
+cursor:hand;}
+.btn-Noselec{color: #5d3a00;border: 1px solid #5d3a00;
+    width: 20%; height: 5%;cursor:pointer;
+    cursor:hand;}
+.btn-confirmar{color: #5d3a00; border: 1px solid #5d3a00;
+    width: 10%; height: 5%;cursor:pointer;
+    cursor:hand;}
+
+.l1{color: #5d3a00;}
+
+p{color: #5d3a00; 
+    display: flex;
+    justify-content: center;}
+header{color: #684E32;
+    padding: 1em;;
+    background-color:rgb(249, 137, 72);
+    clear: left; 
+    text-align: center;}
+html {
+        font-family: 'Montserrat', Arial, sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+.form-control{color: #5d3a00; align-self: center;  width: 10%; height: 5%;}
