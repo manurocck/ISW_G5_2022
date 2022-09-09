@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en">
 <div class="container2">
 <head>
@@ -12,6 +13,9 @@
 
 <body>
     
+=======
+<!--
+>>>>>>> aaafc5e29ad2c640c858632df9883e344a26ea48
 <div class="container">
     <header>
 		<h1>&#9734; REALIZAR PEDIDO &#9734;</h1>
@@ -25,6 +29,7 @@
     <h3 class="titulo-plantilla">TOTAL A PAGAR:</h3>
     <p>$5.000</p>
     <hr>
+<<<<<<< HEAD
    
     <h3 class="titulo-plantilla">Medio de pago:</h3>
     <button class="btn-selec">Efectivo</button>
@@ -32,12 +37,107 @@
 
     <hr>
    
+=======
+    <div class="btn btn-primary">Efectivo</div>
+    <div class="btn btn-primary">Tarjeta de Crédito/Débito</div><!-PREGUNTAR QUÉ TIPO DE TARJETA->
+    
+>>>>>>> aaafc5e29ad2c640c858632df9883e344a26ea48
     <h3 class="titulo-plantilla">Pago en efectivo</h3>
-    <label class="l1" for="calle"> ¿Con cuánto vas a pagar? </label> <!--  -->
+    <label class="l1" for="calle"> ¿Con cuánto vas a pagar? </label> 
     <input type="text" class="form-control" placeholder="pago" name="pago" id="calle" required pattern="[A-Z, a-z]{4,50}">
+<<<<<<< HEAD
     <button type="submit" class="btn-confirmar">Confirmar</button>
 
 </div>
 </div>
 </body>
 </html>
+=======
+    <button type="submit" class="btn btn-primary">Siguiente</button>
+</div>
+-->
+
+<form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="bg-ligth">
+    <fieldset>
+        <!--campo cantidad-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 offset-sm-2" for="Cantidad">
+                Cantidad <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="Cantidad"
+                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Cantidad'].touched || submitted)
+                    && FormRegistroTarjeta.controls['Cantidad'].errors}">
+                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Cantidad'].touched || submitted)
+                    && FormRegistroTarjeta.controls['Cantidad'].hasError('required')">
+                    Dato Requerido.
+                </div>
+            </div>
+        </div>
+
+        <!--campo total-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 offset-sm-2" for="Total">
+                Total a pagar <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="Total"
+                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Total'].touched || submitted)
+                    && FormRegistroTarjeta.controls['Total'].errors}">
+                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Total'].touched || submitted)
+                    && FormRegistroTarjeta.controls['Total'].hasError('required')">
+                    Dato Requerido.
+                </div>
+            </div>
+        </div>
+
+        <!--campo numerodetarjeta-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 offset-sm-2" for="NumeroTarjeta">
+                Numero de Tarjeta <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="NumeroTarjeta"
+                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['NumeroTarjeta'].touched || submitted)
+                    && FormRegistroTarjeta.controls['NumeroTarjeta'].errors}">
+                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['NumeroTarjeta'].touched || submitted)
+                    && FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('required')">
+                    Dato Requerido.
+                </div>
+            </div>
+        </div>
+
+        <!--campo vencimiento-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 offset-sm-2" for="Vencimiento">
+                Vencimiento <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="Vencimiento"
+                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
+                    && FormRegistroTarjeta.controls['Vencimiento'].errors}">
+                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
+                    && FormRegistroTarjeta.controls['Vencimiento'].hasError('required')">
+                    Dato Requerido.
+                </div>
+            </div>
+        </div>
+
+        <!--campo vencimiento-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 offset-sm-2" for="CodigoSeguridad">
+                Codigo de Seguridad <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" formControlName="CodigoSeguridad"
+                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['CodigoSeguridad'].touched || submitted)
+                    && FormRegistroTarjeta.controls['CodigoSeguridad'].errors}">
+                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['CodigoSeguridad'].touched || submitted)
+                    && FormRegistroTarjeta.controls['CodigoSeguridad'].hasError('required')">
+                    Dato Requerido.
+                </div>
+            </div>
+        </div>   
+    </fieldset>
+</form>
+>>>>>>> aaafc5e29ad2c640c858632df9883e344a26ea48

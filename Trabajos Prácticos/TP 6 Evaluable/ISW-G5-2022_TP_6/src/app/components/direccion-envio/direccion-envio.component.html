@@ -1,38 +1,82 @@
+
+
 <div class="container">
     <h3>Direccion de envio</h3>
     <hr>
-    <form name="FormDireccion" class="form-row">
+    <form name="FormDireccion" [formGroup]='FormRegistro' class="form-row" >
         <div class="col">
             <div class="row">
+                <!-- Calle -->
                 <div class="form-group col-md-7">
-                    <label class="l1" for="calle"> Calle </label> <!--  -->
-                    <input type="text" class="form-control" placeholder="Calle" name="calle" id="calle" required pattern="[A-Z, a-z]{4,50}">
+                    <label class="l1" for="calle"> Calle<span
+                        class="text-danger">*</span>: </label> <!--  -->
+                    <input type="text" class="form-control" formControlName="Calle" 
+                    
+                    [ngClass]="{'is-invalid': (FormRegistro.controls['Calle'].touched || submitted)  
+                    && FormRegistro.controls['Calle'].errors}"
+                    placeholder="Calle" name="calle" id="calle" >
+
+                    <div class="validacion" *ngIf="(FormRegistro.controls['Calle'].touched || submitted) 
+                        && FormRegistro.controls['Calle'].hasError('required')">
+                    Dato requerido.
+                    </div>
+
+                    <div class="validacion"
+            *ngIf="(FormRegistro.controls['Calle'].touched || submitted) 
+                       && (FormRegistro.controls['Calle'].hasError('pattern')) ">
+            Dato texto, 4 a 55 caracteres.
+          </div>
                 </div>
+                
+                <!-- Numero -->
                 <div class="form-group col-md-2 d1">
-                    <label class="l1" for="numero"> Numero </label>
-                    <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required pattern="[0-9]">
+                    <label class="l1" for="numero"> Numero<span
+                        class="text-danger">*</span>: </label>
+                    <input type="text" class="form-control"
+                    formControlName="Numero"  placeholder="Numero" name="numero" id="numero" [ngClass]="{'is-invalid': (FormRegistro.controls['Numero'].touched || submitted)  
+                    && FormRegistro.controls['Numero'].errors}" >
+
+                    <div class="validacion" *ngIf="(FormRegistro.controls['Numero'].touched || submitted) 
+                        && FormRegistro.controls['Numero'].hasError('required')">
+                    Dato requerido.
+                    </div>
+
+                    <div class="validacion"
+            *ngIf="(FormRegistro.controls['Numero'].touched || submitted) 
+                       && (FormRegistro.controls['Numero'].hasError('pattern')) ">
+            Dato númerico, 1 a 5 caracteres.
+          </div>
                 </div>
             </div>
 
             <div class="row">
+                <!-- Ciudad -->
                 <div class="form-group col-md-5">
-                    <label class="l1" for="ciudad"> Ciudad </label>
-                    <select class="form-control" name="ciudad" id="ciudad" required>
-                        <option value="cba">Cordoba</option>
-                        <option value="jm">Jesus Maria</option>
-                        <option value="ag">Alta Gracia</option>
-                        <option value="as">Ascochinga</option>
-                        <option value="rc">Rio Ceballos</option>
+                    <label class="l1" for="ciudad"> Ciudad<span
+                        class="text-danger">*</span>: </label>
+                    <select class="form-control"
+                    formControlName="Ciudad" name="ciudad" id="ciudad" >
+                        <option *ngFor="let ciudad of ItemCiudad">{{ciudad.Nombre}}</option>
                     </select>
                 </div>
+
+                <!-- Referencia -->
                 <div class="form-group col-md-4 d1">
                     <label class="l1" for="referencia"> Referencia (Opcional) </label>
-                    <textarea class="form-control" placeholder="Referencia" name="referencia" id="referencia" rows="2" ></textarea>
+                    <textarea class="form-control" 
+                    formControlName="Referencia"  placeholder="Referencia" name="referencia" id="referencia" rows="2" [ngClass]="{'is-invalid': (FormRegistro.controls['Referencia'].touched || submitted)  
+                    && FormRegistro.controls['Referencia'].errors}"></textarea>
+
+                    <div class="validacion"
+                    *ngIf="(FormRegistro.controls['Referencia'].touched || submitted) && (FormRegistro.controls['Referencia'].hasError('pattern')) ">
+                    De 1 a 100 caracteres.
                     </div>
+                </div>
             </div>
             <div>
-                <button name="siguiente float-end" type="submit" class="btn btn-primary" id="siguiente" > Siguiente</button>
+                <button name="siguiente float-end" type="submit" class="btn btn-primary" id="siguiente" (click)="Siguiente()" > Siguiente</button>
             </div>
         </div>
     </form>
 </div>
+
