@@ -6,8 +6,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 
 import { PagoEfectivoComponent } from './components/pago-efectivo/pago-efectivo.component';
 import { DireccionEnvioComponent } from './components/direccion-envio/direccion-envio.component';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     InicioComponent,
     DireccionEnvioComponent,
-    PagoEfectivoComponent 
+    PagoEfectivoComponent,
+
   ],
   imports: [
     BrowserModule,
