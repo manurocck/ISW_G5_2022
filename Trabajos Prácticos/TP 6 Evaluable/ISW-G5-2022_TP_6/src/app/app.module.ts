@@ -6,6 +6,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 
 import { PagoEfectivoComponent } from './components/pago-efectivo/pago-efectivo.component';
 import { DireccionEnvioComponent } from './components/direccion-envio/direccion-envio.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { DireccionEnvioComponent } from './components/direccion-envio/direccion-
     PagoEfectivoComponent 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
