@@ -24,11 +24,11 @@ export class DireccionEnvioComponent implements OnInit {
   }
   
   // COMUNICACIÓN CON EL COMPONENTE PRINCIPAL
+
   @Output() estado = new EventEmitter<string>();
   siguiente(){ 
-    /* A CHEQUEAR LA LÓGICA. POR AHORA SOLO LE AGREGO EL MOVIMIENTO ENTRE COMPONENTES
-    this.submitted = false;
-    if(this.FormRegistroDireccion.invalid)
+    /* Hay que agregarle la lógica de submit
+     * Guardar la info si es correcta y sino, dar error en los campos incorrectos
     */
 
     this.estado.emit('P');

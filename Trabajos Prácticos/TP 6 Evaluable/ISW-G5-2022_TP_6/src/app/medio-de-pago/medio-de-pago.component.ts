@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 @Component({
@@ -38,6 +39,14 @@ export class MedioDePagoComponent implements OnInit {
     } else return '';
   }
 
+  //NAVEGACIÓN DE BOTONES
+  
+  @Output() estado = new EventEmitter<string>();
+  
+  volver(){
+    this.estado.emit('D');
+  }
+
   //VALIDACIONES
 
   validezCampo(campo:string){
@@ -72,25 +81,6 @@ export class MedioDePagoComponent implements OnInit {
     ])
   });
 
-
   submitted = false;
-
-  CVC(codigoIngresado:string){
-    if(codigoIngresado.length==3){
-      
-      for(let i = 0 ; i<codigoIngresado.length ; i++){
-        codigoIngresado[i]; //tiene que ser un numero
-      }
-
-      return true;
-    }else return false;
-  }
-
-  esTarjetaDeDebito(){ //tiene que tener 16 digitos y investigar visa debito y master debito
-    return true;
-  }
-  esTarjetaDeCredito(){ //tiene que tener 16 digitos y investigar visa credito y master credito
-    return true;
-  }
 
 }

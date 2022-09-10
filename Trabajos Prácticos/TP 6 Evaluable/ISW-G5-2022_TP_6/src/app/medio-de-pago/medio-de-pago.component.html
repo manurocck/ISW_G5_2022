@@ -1,10 +1,9 @@
 <div class="container">
-    
     <!-- DISPLAY CHANGUITO -->
     <h3 class="titulo-plantilla text-dark">CARRITO</h3>
     <p>Productos({{cantidadProductosChanguito()}})</p>
     <hr>
-    <h3 class="titulo-plantilla text-dark">TOTAL A PAGAR</h3>
+    <h3 class="titulo-plantilla text-dark">Total a pagar</h3>
     <p>{{totalChanguito() | currency}}</p>
     <hr>
     
@@ -24,72 +23,78 @@
     <!-- CONTAINER EFECTIVO Y TARJETA (ADAPTATIVO)-->
     <div class="container">
         <!-- MEDIO DE PAGO EFECTIVO -->
-        <div class="efectivo" *ngIf="seleccionado == 'Efectivo'">
+        <div class="row container-efectivo" *ngIf="seleccionado == 'Efectivo'">
             <label class="etiqueta-campo" for="calle"> ¿Con cuánto vas a pagar? </label> 
             <input type="text" class="form-control" placeholder="pago" name="pago" id="calle" required pattern="[A-Z, a-z]{4,50}">
         </div>
     
-        <!-- MEDIO DE PAGO TARJETA -->
-        <div class="tarjeta" *ngIf="seleccionado == 'Tarjeta'">
-            <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="bg-ligth">
-                <fieldset>
-                    <!--campo NOMBRE Y APELLIDO-->
-                    <div class="form-group row full-width">
-                        <label class="etiqueta-campo col-form-label col-sm-2 offset-sm-2" for="NombreApellido">
+        <!-- CAJA DE PAGO CON TARJETA -->
+        <div class="container container-tarjeta">
+
+            <!-- MEDIO DE PAGO TARJETA -->
+            <div class="tarjeta" *ngIf="seleccionado == 'Tarjeta'">
+                <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="bg-ligth">
+                    <fieldset>
+                        <!--campo NOMBRE Y APELLIDO-->
+                        <div class="form-group full-width">
+                        <label class="etiqueta-campo col-form-label" for="NombreApellido">
                             Nombre y Apellido <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control" formControlName="NombreApellido"
+                        <input type="text" class="form-control col-md-12" formControlName="NombreApellido"
                         [ngClass]="validezCampo('NombreApellido')">
                         <div class="text-danger" *ngIf="validezCampo('NombreApellido')">
                             Dato Requerido.
                         </div>
-                    </div>
+                        </div>
                     
-                    <!--campo NUMERO DE TARJETA-->
-                    <div class="form-group row">
-                        <label class="etiqueta-campo col-form-label col-sm-2 offset-sm-2" for="NumeroTarjeta">
-                            Numero de Tarjeta <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" formControlName="NumeroTarjeta"
+                        <!--campo NUMERO DE TARJETA-->
+                        <div class="form-group full-width">
+                            <label class="etiqueta-campo col-form-label" for="NumeroTarjeta">
+                                Numero de Tarjeta <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control col-md-12" formControlName="NumeroTarjeta"
                             [ngClass]="validezCampo('NumeroTarjeta')">
                             <div class="text-danger" *ngIf="validezCampo('NumeroTarjeta')">
                                 Dato Requerido.
                             </div>
                         </div>
-                    </div>
-                    
-                    <!--campo VENCIMIENTO-->
-                    <div class="form-group row">
-                        <label class="col-form-label col-sm-2 offset-sm-2" for="Vencimiento">
-                            Vencimiento <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" formControlName="Vencimiento"
-                            [ngClass]="validezCampo('Vencimiento')">
-                            <div class="text-danger" *ngIf="validezCampo('Vencimiento')">
-                                Dato Requerido.
+                        
+                        <!--campo VENCIMIENTO Y CVC-->
+                        <div class="form-group full-width">
+                            <div class="row full-width">
+                                
+                                <!--campo VENCIMIENTO-->
+                                <div class="col-md-4">
+                                    <label class="col-form-label col-md-12" for="Vencimiento">
+                                        Vencimiento <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control col-md-12" formControlName="Vencimiento" placeholder="MM/AAAA"
+                                    [ngClass]="validezCampo('Vencimiento')">
+                                    <div class="text-danger" *ngIf="validezCampo('Vencimiento')">
+                                        Dato Requerido.
+                                    </div>
+                                </div>
+                                
+                                <!--campo CVC-->
+                                <div class="col-md-5">
+                                    <label class="col-form-label row" for="CodigoSeguridad">
+                                        Codigo de Seguridad <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control row" formControlName="CodigoSeguridad"
+                                    [ngClass]="validezCampo('CodigoSeguridad')">
+                                    <div class="text-danger" *ngIf="validezCampo('CodigoSeguridad')">
+                                        Dato Requerido.
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!--campo CVC-->
-                    <div class="form-group row">
-                        <label class="col-form-label col-sm-2 offset-sm-2" for="CodigoSeguridad">
-                            Codigo de Seguridad <span class="text-danger">*</span>
-                        </label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" formControlName="CodigoSeguridad"
-                            [ngClass]="validezCampo('CodigoSeguridad')">
-                            <div class="text-danger" *ngIf="validezCampo('CodigoSeguridad')">
-                                Dato Requerido.
-                            </div>
-                        </div>
-                    </div>
                     </fieldset>
-            </form>    
+                </form>    
+            </div>
         </div>
-        
+    </div>
+    <div class=" navegacion row d-flex justify-content-between">
+        <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
         <button type="submit" class="btn btn-siguiente">Siguiente</button>
     </div>
 </div>

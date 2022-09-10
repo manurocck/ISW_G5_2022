@@ -15,20 +15,24 @@
 }
 
 /** ESTILO DE BOTONES **/
+.btn-selectivo{
+    color: #5d3a00;
+    background-color: #F9EA9A;
+
+    border: 1px solid #5d3a00;
+    width: 20%; 
+    height: 5%;    
+}
 .seleccionado{ 
     background-color:rgb(249, 137, 72);
     color: #5d3a00;
     border: 1px solid #5d3a00;
     width: 10%; 
     height: 5%;
+
+    font-weight: 500;
 }
 
-.btn-selectivo{
-    color: #5d3a00;
-    border: 1px solid #5d3a00;
-    width: 20%; 
-    height: 5%;    
-}
 
 .btn-siguiente{
     color: #5d3a00; 

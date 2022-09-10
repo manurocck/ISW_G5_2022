@@ -1,7 +1,18 @@
-
+.container-efectivo{
+    padding-bottom: 2%;
+}
+.container-tarjeta{
+    width:90%;
+    height: 90%;
+    background-color: #F9EA9A;
+}
 
 .btn + .btn {
     margin-left: 2%;
+}
+
+.navegacion{
+    padding-inline: 2%;
 }
 
 p{ 
@@ -11,9 +22,7 @@ p{
 
 .form-control{
     color: #5d3a00; 
-    align-self: center;  
-    width: 10%; 
-    height: 5%;
+    align-self: center;
 }
 
 @media only screen and (max-width: 768) {

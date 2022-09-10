@@ -52,11 +52,11 @@
             <div class="form-group col-md-7">
                 <label class="etiqueta-campo" for="referencia"> Referencia (Opcional) </label>
                 <textarea class="form-control" 
-                formControlName="Referencia"  placeholder="Referencia" name="referencia" id="referencia" rows="2" [ngClass]="{'is-invalid': (FormRegistroDireccion.controls['Referencia'].touched || submitted)  
-                && FormRegistroDireccion.controls['Referencia'].errors}"></textarea>
+                formControlName="Referencia"  placeholder="Referencia" name="referencia" id="referencia" rows="2" 
+                [ngClass]="validezCampo('Referencia')"></textarea>
 
                 <div class="validacion"
-                *ngIf="(FormRegistroDireccion.controls['Referencia'].touched || submitted) && (FormRegistroDireccion.controls['Referencia'].hasError('pattern')) ">
+                *ngIf="errorDePatron('Referencia')">
                 De 1 a 100 caracteres.
                 </div>
             </div>
