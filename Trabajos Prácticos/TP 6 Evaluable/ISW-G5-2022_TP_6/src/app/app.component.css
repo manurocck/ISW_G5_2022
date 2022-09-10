@@ -1,27 +1,9 @@
-
-.encabezado{
+.header-plantilla{
     color: black;
     border: 1px solid;
+    padding: 1em;;
+    background-color:rgb(249, 137, 72);
+    clear: left; 
     text-align: center;
-    background-color:burlywood;
     margin-bottom: 20px;
 }
-.l1{
-    margin-bottom: 0;
-    margin-left:4px;
-}
-.d1{
-    margin-left:6px;
-}
-#siguiente{
-    float: right;
-    margin-right: 80px;
-}
-@media only screen and (max-width: 780px) {
-    #siguiente{
-    float: right;
-    margin-right: 0px;
-    }
-}
-
-
