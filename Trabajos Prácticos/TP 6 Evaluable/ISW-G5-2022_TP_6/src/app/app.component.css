@@ -1,8 +1,20 @@
+.container{
+    margin-top: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 70%;
+    border: 1px solid black;
+}@media only screen and (max-width: 768px){
+    .container{ 
+    width: 90%;
+    }
+}
+
 .header-plantilla{
-    color: black;
+    color: white;
     border: 1px solid;
-    padding: 1em;;
-    background-color:rgb(249, 137, 72);
+    padding: 1em;
+    background-color:#684E32;
     clear: left; 
     text-align: center;
     margin-bottom: 20px;

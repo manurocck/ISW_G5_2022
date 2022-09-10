@@ -6,15 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
+
 export class AppComponent {
   title = 'ISW-G5-2022_TP_6';
-  TiposEstadoPedido = {
+  tiposEstadoPedido = {
     D: '(Direecion)',
     P: '(Pago)',
     E: '(Entrega)'
   };
-
-  EstadoPedido = 'D';
+  
+  estadoPedido = 'D';
 
   
 }

@@ -39,6 +39,15 @@ export class MedioDePagoComponent implements OnInit {
   }
 
   //VALIDACIONES
+
+  validezCampo(campo:string){
+    if( (this.FormRegistroTarjeta.controls[campo].touched || this.submitted)
+          && this.FormRegistroTarjeta.controls[campo].errors)
+    return 'is-invalid';
+
+    else return '';
+  }
+
   FormRegistroTarjeta = new FormGroup({
     Cantidad: new FormControl('',[
       Validators.required,
@@ -63,13 +72,6 @@ export class MedioDePagoComponent implements OnInit {
     ])
   });
 
-  validezCampo(campo:string){
-    if( (this.FormRegistroTarjeta.controls[campo].touched || this.submitted)
-          && this.FormRegistroTarjeta.controls[campo].errors)
-    return 'is-invalid';
-
-    else return '';
-  }
 
   submitted = false;
 
