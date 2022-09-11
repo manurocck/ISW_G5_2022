@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <html lang="en">
 <div class="container2">
 <head>
@@ -6,20 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pago-efectivo.component.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    
+<!--<link rel="stylesheet" href="css/bootstrap.css"> 
+--> 
 	<title>REALIZAR PEDIDO</title>
 </head>
 
 <body>
     
-=======
-<!--
->>>>>>> aaafc5e29ad2c640c858632df9883e344a26ea48
 <div class="container">
     <header>
 		<h1>&#9734; REALIZAR PEDIDO &#9734;</h1>
-		<h2>&bull;COMERCIO A&bull;</h1>
+		<h2>&bull;COMERCIO A&bull;</h2>
     </header>
     
     <h3 class="titulo-plantilla">CARRITO:</h3>
@@ -29,7 +25,6 @@
     <h3 class="titulo-plantilla">TOTAL A PAGAR:</h3>
     <p>$5.000</p>
     <hr>
-<<<<<<< HEAD
    
     <h3 class="titulo-plantilla">Medio de pago:</h3>
     <button class="btn-selec">Efectivo</button>
@@ -37,29 +32,16 @@
 
     <hr>
    
-=======
-    <div class="btn btn-primary">Efectivo</div>
-    <div class="btn btn-primary">Tarjeta de Crédito/Débito</div><!-PREGUNTAR QUÉ TIPO DE TARJETA->
-    
->>>>>>> aaafc5e29ad2c640c858632df9883e344a26ea48
     <h3 class="titulo-plantilla">Pago en efectivo</h3>
     <label class="l1" for="calle"> ¿Con cuánto vas a pagar? </label> 
     <input type="text" class="form-control" placeholder="pago" name="pago" id="calle" required pattern="[A-Z, a-z]{4,50}">
-<<<<<<< HEAD
-    <button type="submit" class="btn-confirmar">Confirmar</button>
-
-</div>
-</div>
-</body>
-</html>
-=======
     <button type="submit" class="btn btn-primary">Siguiente</button>
 </div>
--->
 
+<!-- 
 <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="bg-ligth">
     <fieldset>
-        <!--campo cantidad-->
+        <--campo cantidad->
         <div class="form-group row">
             <label class="col-form-label col-sm-2 offset-sm-2" for="Cantidad">
                 Cantidad <span class="text-danger">*</span>
@@ -75,7 +57,7 @@
             </div>
         </div>
 
-        <!--campo total-->
+        <--campo total->
         <div class="form-group row">
             <label class="col-form-label col-sm-2 offset-sm-2" for="Total">
                 Total a pagar <span class="text-danger">*</span>
@@ -91,7 +73,7 @@
             </div>
         </div>
 
-        <!--campo numerodetarjeta-->
+        <--campo numerodetarjeta->
         <div class="form-group row">
             <label class="col-form-label col-sm-2 offset-sm-2" for="NumeroTarjeta">
                 Numero de Tarjeta <span class="text-danger">*</span>
@@ -104,10 +86,15 @@
                     && FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('required')">
                     Dato Requerido.
                 </div>
+                <div 
+                    class="text-danger" 
+                    *ngIf="FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('pattern')">
+                    formato xxxx-xxxx-xxxx-xxxx 
+                </div>
             </div>
         </div>
 
-        <!--campo vencimiento-->
+        <--campo vencimiento->
         <div class="form-group row">
             <label class="col-form-label col-sm-2 offset-sm-2" for="Vencimiento">
                 Vencimiento <span class="text-danger">*</span>
@@ -115,15 +102,20 @@
             <div class="col-sm-6">
                 <input type="text" class="form-control" formControlName="Vencimiento"
                     [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
-                    && FormRegistroTarjeta.controls['Vencimiento'].errors}">
+                    && FormRegistroTarjeta.controls['Vencimiento'].errors}"/>
                 <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
                     && FormRegistroTarjeta.controls['Vencimiento'].hasError('required')">
                     Dato Requerido.
                 </div>
+                <div 
+                    class="text-danger" 
+                    *ngIf="FormRegistroTarjeta.controls['Vencimiento'].hasError('pattern')">
+                    formato mm/aaaa 
+                </div>
             </div>
         </div>
 
-        <!--campo vencimiento-->
+        <--campo codigoseguridad->
         <div class="form-group row">
             <label class="col-form-label col-sm-2 offset-sm-2" for="CodigoSeguridad">
                 Codigo de Seguridad <span class="text-danger">*</span>
@@ -140,4 +132,4 @@
         </div>   
     </fieldset>
 </form>
->>>>>>> aaafc5e29ad2c640c858632df9883e344a26ea48
+-->
