@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { DireccionEnvioComponent } from './components/direccion-envio/direccion-envio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MedioDePagoComponent } from './medio-de-pago/medio-de-pago.component';
+import { EntregaComponent } from './entrega/entrega.component';
+
+
 
 
 @NgModule({
@@ -13,11 +16,14 @@ import { MedioDePagoComponent } from './medio-de-pago/medio-de-pago.component';
     AppComponent,
     DireccionEnvioComponent,
     MedioDePagoComponent,
+    EntregaComponent,
+    
 
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

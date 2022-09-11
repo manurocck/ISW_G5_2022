@@ -82,5 +82,13 @@ export class MedioDePagoComponent implements OnInit {
   });
 
   submitted = false;
+  siguiente(){ 
+    /* Hay que agregarle la lógica de submit
+     * Guardar la info si es correcta y sino, dar error en los campos incorrectos
+    */
+
+    this.estado.emit('E');
+    return;
+  }
 
 }
