@@ -23,15 +23,20 @@
     <!-- CONTAINER EFECTIVO Y TARJETA (ADAPTATIVO)-->
     <div class="container">
         <!-- MEDIO DE PAGO EFECTIVO -->
-        <div class="row container-efectivo" *ngIf="seleccionado == 'Efectivo'">
+        <form name="FormPagoEfectivo" [formGroup]="FormPagoEfectivo"  *ngIf="seleccionado == 'Efectivo'">
             <label class="etiqueta-campo" for="calle"> ¿Con cuánto vas a pagar? </label> 
             <input type="text" class="form-control" placeholder="pago" name="pago" id="calle" required pattern="[A-Z, a-z]{4,50}">
-        </div>
+            <div class=" navegacion row d-flex justify-content-between">
+                <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
+                <button [disabled]="FormPagoEfectivo.invalid" type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
+            </div>
+        </form>
     
         <!-- CAJA DE PAGO CON TARJETA -->
-        <div class="container container-tarjeta">
+        <form name="FormRegistroTarjeta" [formGroup]="FormRegistroTarjeta" class="container container-tarjeta"
+            *ngIf="seleccionado == 'Tarjeta'">
             <!-- MEDIO DE PAGO TARJETA -->
-            <div class="tarjeta" *ngIf="seleccionado == 'Tarjeta'">
+            <div class="tarjeta">
                 <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="form-row" >
                     <!--campo NOMBRE Y APELLIDO [FUNCIONA]--> 
                     <div class="form-group full-width">
@@ -83,11 +88,11 @@
                     </div>
                 </form>
             </div>
-        </div> 
-    </div>
-    <div class=" navegacion row d-flex justify-content-between">
-        <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
-        <button type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
+            <div class=" navegacion row d-flex justify-content-between">
+                <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
+                <button [disabled]="FormRegistroTarjeta.invalid" type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
+            </div>
+        </form> 
     </div>
     <!--texto: Revisar los datos ingresados...  --> 
     <div id="divMsjFormRegistroTarjeta" class="row alert alert-danger" *ngIf="submitted && FormRegistroTarjeta.invalid">

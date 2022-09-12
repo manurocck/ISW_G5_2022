@@ -74,6 +74,12 @@ export class MedioDePagoComponent implements OnInit {
 
   //PATRONES DE VALIDACION
 
+  FormPagoEfectivo = new FormGroup({
+    Monto: new FormControl('',[
+      Validators.required,
+    ])
+  });
+
   FormRegistroTarjeta = new FormGroup({
     NombreApellido: new FormControl('',[
       Validators.required,
