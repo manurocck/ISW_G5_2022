@@ -7,7 +7,6 @@ import { DireccionEnvioComponent } from './direccion-envio/direccion-envio.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MedioDePagoComponent } from './medio-de-pago/medio-de-pago.component';
 import { EntregaComponent } from './entrega/entrega.component';
-import { PagoEfectivoComponent} from './pago-efectivo/pago-efectivo.component';
 
 
 
@@ -18,7 +17,6 @@ import { PagoEfectivoComponent} from './pago-efectivo/pago-efectivo.component';
     DireccionEnvioComponent,
     MedioDePagoComponent,
     EntregaComponent,
-    PagoEfectivoComponent,
     
 
   ],

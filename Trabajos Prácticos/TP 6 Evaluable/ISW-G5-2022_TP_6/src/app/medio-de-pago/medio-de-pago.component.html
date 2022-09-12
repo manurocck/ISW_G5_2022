@@ -33,21 +33,20 @@
 
             <!-- MEDIO DE PAGO TARJETA -->
         <div class="tarjeta" *ngIf="seleccionado == 'Tarjeta'">
-            <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="bg-ligth">
-                <fieldset>
+            <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="form-row bg-ligth">
+                    <!--campo NOMBRE Y APELLIDO-->
                     <div class="form-group full-width">
-                        <label class="etiqueta-campo col-form-label" for="NombreApellido">
-                            Nombre y Apeliido <span class="text-danger">*</span>
-                        </label>                       
-                        <input type="text" class="form-control col-md-12" formControlName="NombreApellido"
-                            [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['NombreApellido'].touched || submitted)
-                            && FormRegistroTarjeta.controls['NombreApellido'].errors}">
+                        <label class="etiqueta-campo col-form-label" for="NombreApellido"> Nombre y Apellido <span class="text-danger">*</span></label> 
+
+                        <input type="text" class="form-control col-md-12" formControlName="NombreApellido" name="NombreApellido" id="NombreApellido"
+                            [ngClass]="validezCampo('NombreApellido')">
+
                         <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['NombreApellido'].touched || submitted)
                             && FormRegistroTarjeta.controls['NombreApellido'].hasError('required')">
                             Dato Requerido.
                         </div>
                     </div>
-                    <!--campo numerodetarjeta-->
+                    <!--campo NUMERO DE TARJETA-->
                     <div class="form-group full-width">
                         <label class="etiqueta-campo col-form-label" for="NumeroTarjeta">
                             Numero de Tarjeta <span class="text-danger">*</span>
@@ -61,12 +60,12 @@
                         </div>
                         <div 
                             class="text-danger" 
-                            *ngIf="FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('pattern')">
+                            *ngIf="errorDePatron('NumeroTarjeta')">
                             formato xxxx-xxxx-xxxx-xxxx 
                         </div>                       
                     </div>
 
-                    <!--campo vencimiento y CVC-->
+                    <!--campo VENCIMIENTO y CVC-->
                     <div class="form-group full-width">
                         <div class="row full-width">
                             <!--campo Vencimiento-->  
@@ -77,25 +76,23 @@
                                 <input type="text" class="form-control" formControlName="Vencimiento"
                                     [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
                                     && FormRegistroTarjeta.controls['Vencimiento'].errors}"/>
-                                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
-                                    && FormRegistroTarjeta.controls['Vencimiento'].hasError('required')">
+                               
+                                    <div class="text-danger" *ngIf="errorDeRequerido('Vencimiento')">
                                     Dato Requerido.
                                 </div>
-                                <div 
-                                    class="text-danger" 
+                                <div class="text-danger" 
                                     *ngIf="FormRegistroTarjeta.controls['Vencimiento'].hasError('pattern')">
-                                    formato mm/aaaa 
+                                    Formato MM/AAAA 
                                 </div>
                             </div>
-                            <!--campo codigoseguridad-->
+                            <!--campo CVC-->
                             <div class="col-md-5">
                                 <label class="col-form-label row" for="CodigoSeguridad">
                                     Codigo de Seguridad <span class="text-danger">*</span>
                                 </label>
                                 
                                 <input type="text" class="form-control" formControlName="CodigoSeguridad"
-                                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['CodigoSeguridad'].touched || submitted)
-                                    && FormRegistroTarjeta.controls['CodigoSeguridad'].errors}">
+                                    [ngClass]="validezCampo('CodigoSeguridad')">
                                 <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['CodigoSeguridad'].touched || submitted)
                                     && FormRegistroTarjeta.controls['CodigoSeguridad'].hasError('required')">
                                     Dato Requerido.
@@ -103,7 +100,6 @@
                             </div>
                         </div>
                     </div>
-                </fieldset>
             </form>
             </div>
         </div> 
