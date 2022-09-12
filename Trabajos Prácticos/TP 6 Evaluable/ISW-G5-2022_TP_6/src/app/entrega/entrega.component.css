@@ -1,15 +1,6 @@
 .container-efectivo{
     padding-bottom: 2%;
 }
-.container-tarjeta{
-    width:90%;
-    height: 90%;
-    background-color: #F9EA9A;
-}
-
-.btn + .btn {
-    margin-left: 2%;
-}
 
 .navegacion{
     padding-inline: 2%;
