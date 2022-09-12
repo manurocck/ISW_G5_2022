@@ -104,14 +104,12 @@ export class MedioDePagoComponent implements OnInit {
     /* Hay que agregarle la lógica de submit
      * Guardar la info si es correcta y sino, dar error en los campos incorrectos
     */
-    this.submitted = false;
+    
+    this.submitted = true;
     if (this.FormRegistroTarjeta.invalid){
-      this.submitted = true
       return;
     } 
-
-
-
+    
 
     this.estado.emit('E');
     return;
