@@ -64,6 +64,9 @@ export class MedioDePagoComponent implements OnInit {
     Total: new FormControl('',[
       Validators.required,
     ]),
+    NombreApellido: new FormControl('',[
+      Validators.required,
+    ]),
     NumeroTarjeta: new FormControl('', [
       Validators.required,
       Validators.pattern(
