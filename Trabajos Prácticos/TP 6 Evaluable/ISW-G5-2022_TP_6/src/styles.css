@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+/** ESTILO DE ESTRUCTURA **/
+.full-width{
+    width: 100%;
+}
+
+/** ESTILO DE TEXTO **/
+.titulo-plantilla {
+    color: black;
+    margin-bottom: 0;
+    margin-left:4px;
+}
+
+.etiqueta-campo{
+    margin-left:6px;
+}
+
+/** ESTILO DE BOTONES **/
+.btn-selectivo{
+    color: #5d3a00;
+    background-color: #F9EA9A;
+
+    border: 1px solid #5d3a00;
+    width: 20%; 
+    height: 5%;    
+}
+.seleccionado{ 
+    background-color:rgb(249, 137, 72);
+    color: #5d3a00;
+    border: 1px solid #5d3a00;
+    width: 10%; 
+    height: 5%;
+
+    font-weight: 500;
+}
+
+
+.btn-siguiente{
+    color: #5d3a00; 
+    border: 1px solid #5d3a00;
+    margin-right: 2%;
+}
+
+@media only screen and (max-width: 780px) {
+    .btn-siguiente{
+        float: right;
+        margin-right: 0px;
+    }
+}

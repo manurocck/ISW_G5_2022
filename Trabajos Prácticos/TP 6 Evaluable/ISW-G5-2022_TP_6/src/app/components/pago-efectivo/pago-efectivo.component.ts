@@ -9,34 +9,6 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 })
 export class PagoEfectivoComponent implements OnInit {
 
-  FormRegistroTarjeta = new FormGroup({
-    Cantidad: new FormControl('',[
-      Validators.required,
-    ]),
-    Total: new FormControl('',[
-      Validators.required,
-    ]),
-    NumeroTarjeta: new FormControl('', [
-      Validators.required,
-      Validators.pattern(
-        '[0-9]{4}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}'
-      )
-    ]),
-    Vencimiento: new FormControl('',[
-      Validators.required,
-      Validators.pattern(
-        '(0[1-9]|1[012])[-/](20)[0-9]{2}'
-      )
-    ]),
-    CodigoSeguridad: new FormControl('',[
-      Validators.required,
-      Validators.maxLength(3),
-      Validators.minLength(3),
-    ])
-  });
-
-  submitted = false;
-  
   constructor() { }
 
   ngOnInit(): void {
