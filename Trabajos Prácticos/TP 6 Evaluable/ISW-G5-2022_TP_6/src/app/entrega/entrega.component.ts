@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormaEntrega } from 'src/app/models/formaentrega';
+import { TiposEntregas } from 'src/app/models/formaentrega';
 import {
-  FormGroup,
+  FormGroup, 
   FormControl,
   Validators
 } from '@angular/forms';
@@ -13,28 +13,35 @@ import {
 })
 export class EntregaComponent implements OnInit {
 
-  ItemFormaEntrega = FormaEntrega;
+  ItemsFormaEntrega = TiposEntregas;
   ngOnInit(): void {
     
   }
-  seleccionado = 'Lo antes posible';
-//
+  
+  submitted = false;
+  
+  @Output() estado = new EventEmitter<string>();
+  siguiente(){ 
+    /* Hay que agregarle la lógica de submit
+     * Guardar la info si es correcta y sino, dar error en los campos incorrectos
+    */
+
+    this.estado.emit('P');
+    return;
+  }
+
+
+  //LÓGICA DE INTERFAZ
+  quiereFechaYHora(){
+    if(this.FormFormaEntrega.value.Forma == 'Seleccionar fecha y hora'){
+      return true;
+    }
+    return false;
+  }
 
 
   //SELECCION DE BOTONES
-  seleccionar(medio:string){
-    this.seleccionado = medio;
-  }
-  AntesPosible(){
-    if (this.seleccionado == 'Lo antes posible'){
-      return 'seleccionado';
-    } else return '';
-  }
-  FechaHora(){
-    if (this.seleccionado == 'Seleccionar Fecha y Hora'){
-      return 'seleccionado';
-    } else return '';
-  }
+
 
   //VALIDACIONES
 
@@ -68,18 +75,7 @@ export class EntregaComponent implements OnInit {
     ])
   });
   
-  submitted = false;
-  
-  @Output() estado = new EventEmitter<string>();
-  siguiente(){ 
-    /* Hay que agregarle la lógica de submit
-     * Guardar la info si es correcta y sino, dar error en los campos incorrectos
-    */
-
-    this.estado.emit('P');
-    return;
-  }
-
+ 
 
 }
 

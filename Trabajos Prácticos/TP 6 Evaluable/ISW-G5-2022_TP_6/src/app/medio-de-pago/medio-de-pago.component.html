@@ -25,7 +25,7 @@
         <!-- MEDIO DE PAGO EFECTIVO -->
         <form name="FormPagoEfectivo" [formGroup]="FormPagoEfectivo"  *ngIf="seleccionado == 'Efectivo'">
             <label class="etiqueta-campo" for="calle"> ¿Con cuánto vas a pagar? </label> 
-            <input type="text" class="form-control" placeholder="pago" name="pago" id="calle" required pattern="[A-Z, a-z]{4,50}">
+            <input type="text" class="form-control" formControlName="Monto" placeholder="Monto" name="Monto" id="Monto">
             <div class=" navegacion row d-flex justify-content-between">
                 <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
                 <button [disabled]="FormPagoEfectivo.invalid" type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
@@ -37,56 +37,54 @@
             *ngIf="seleccionado == 'Tarjeta'">
             <!-- MEDIO DE PAGO TARJETA -->
             <div class="tarjeta">
-                <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="form-row" >
-                    <!--campo NOMBRE Y APELLIDO [FUNCIONA]--> 
-                    <div class="form-group full-width">
-                        <label class="etiqueta-campo col-form-label" for="NombreApellido"> Nombre y Apellido <span class="text-danger">*</span></label> 
+                <!--campo NOMBRE Y APELLIDO [FUNCIONA]--> 
+                <div class="form-group full-width">
+                    <label class="etiqueta-campo col-form-label" for="NombreApellido"> Nombre y Apellido <span class="text-danger">*</span></label> 
 
-                        <input type="text" class="form-control col-md-12" formControlName="NombreApellido" name="NombreApellido" id="NombreApellido"
-                            [ngClass]="validezCampo('NombreApellido')">
+                    <input type="text" class="form-control col-md-12" formControlName="NombreApellido" name="NombreApellido" id="NombreApellido"
+                        [ngClass]="validezCampo('NombreApellido')">
 
-                        <div class="text-danger" *ngIf="errorDeRequerido('NombreApellido')">Dato Requerido.</div>
-                    </div>
-                    <!--campo NUMERO DE TARJETA-->
-                    <div class="form-group full-width">
-                        <label class="etiqueta-campo col-form-label" for="NumeroTarjeta"> Numero de Tarjeta <span class="text-danger">*</span></label>                       
-                        <input type="text" class="form-control col-md-12" formControlName="NumeroTarjeta"
-                            [ngClass]="validezCampo('NumeroTarjeta')">
-                        
-                        <div class="text-danger" 
-                            *ngIf="errorDeRequerido('NumeroTarjeta')">Dato Requerido.</div>
-                        
-                        <div class="text-danger" 
-                            *ngIf="errorDePatron('NumeroTarjeta')">Solo números : XXXX-XXXX-XXXX-XXXX </div>                       
-                    </div>
+                    <div class="text-danger" *ngIf="errorDeRequerido('NombreApellido')">Dato Requerido.</div>
+                </div>
+                <!--campo NUMERO DE TARJETA-->
+                <div class="form-group full-width">
+                    <label class="etiqueta-campo col-form-label" for="NumeroTarjeta"> Numero de Tarjeta <span class="text-danger">*</span></label>                       
+                    <input type="text" class="form-control col-md-12" formControlName="NumeroTarjeta"
+                        [ngClass]="validezCampo('NumeroTarjeta')">
+                    
+                    <div class="text-danger" 
+                        *ngIf="errorDeRequerido('NumeroTarjeta')">Dato Requerido.</div>
+                    
+                    <div class="text-danger" 
+                        *ngIf="errorDePatron('NumeroTarjeta')">Solo números : XXXX-XXXX-XXXX-XXXX </div>                       
+                </div>
 
-                    <!--campo VENCIMIENTO y CVC-->
-                    <div class="form-group full-width">
-                        <div class="row full-width">
-                            <!--campo Vencimiento-->  
-                            <div class="col-sm-4">
-                                <label class="col-form-label col-sm-12" for="Vencimiento">Vencimiento <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" formControlName="Vencimiento"
-                                    [ngClass]="validezCampo('Vencimiento')"/>
-                                
-                                <div class="text-danger" 
-                                    *ngIf="errorDeRequerido('Vencimiento')">Dato Requerido.</div>
-                                <div class="text-danger" 
-                                    *ngIf="errorDePatron('Vencimiento')">Formato MM/AAAA </div>
-                            </div>
-                            <!--campo CVC-->
-                            <div class="col-md-5">
-                                <label class="col-form-label row" for="CodigoSeguridad">Codigo de Seguridad <span class="text-danger">*</span></label>
-                                
-                                <input type="text" class="form-control" formControlName="CodigoSeguridad"
-                                    [ngClass]="validezCampo('CodigoSeguridad')">
+                <!--campo VENCIMIENTO y CVC-->
+                <div class="form-group full-width">
+                    <div class="row full-width">
+                        <!--campo Vencimiento-->  
+                        <div class="col-sm-4">
+                            <label class="col-form-label col-sm-12" for="Vencimiento">Vencimiento <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="Vencimiento"
+                                [ngClass]="validezCampo('Vencimiento')"/>
+                            
+                            <div class="text-danger" 
+                                *ngIf="errorDeRequerido('Vencimiento')">Dato Requerido.</div>
+                            <div class="text-danger" 
+                                *ngIf="errorDePatron('Vencimiento')">Formato MM/AAAA </div>
+                        </div>
+                        <!--campo CVC-->
+                        <div class="col-md-5">
+                            <label class="col-form-label row" for="CodigoSeguridad">Codigo de Seguridad <span class="text-danger">*</span></label>
+                            
+                            <input type="text" class="form-control" formControlName="CodigoSeguridad"
+                                [ngClass]="validezCampo('CodigoSeguridad')">
 
-                                <div class="text-danger" 
-                                    *ngIf="errorDeRequerido('CodigoSeguridad')">Dato Requerido.</div>
-                            </div>
+                            <div class="text-danger" 
+                                *ngIf="errorDeRequerido('CodigoSeguridad')">Dato Requerido.</div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
             <div class=" navegacion row d-flex justify-content-between">
                 <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
@@ -96,9 +94,11 @@
     </div>
     <!--texto: Revisar los datos ingresados...  --> 
     <div id="divMsjFormRegistroTarjeta" class="row alert alert-danger" *ngIf="submitted && FormRegistroTarjeta.invalid">
-        <i class="fa fa-exclamation-sign"></i>{{Mensaje}}
+        <i class="fa fa-exclamation-sign"></i>
     </div>
 </div>
+
+{{FormRegistroTarjeta.value.Numero | currency}}
 
 
 

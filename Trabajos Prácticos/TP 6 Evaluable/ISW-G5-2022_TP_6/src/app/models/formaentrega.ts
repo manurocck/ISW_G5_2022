@@ -3,7 +3,7 @@ export interface FormaEntrega {
     Id: number;
 }
 
-export const FormaEntrega: FormaEntrega[] = [
+export const TiposEntregas: FormaEntrega[] = [
     {Nombre: 'Lo antes posible', Id: 1},
-    {Nombre: 'Seleccionar Fecha y Hora', Id: 2},
-]
+    {Nombre: 'Seleccionar fecha y hora', Id: 2},
+] 

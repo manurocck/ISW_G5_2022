@@ -1,21 +1,20 @@
 <div class="container">
     <h3 class="titulo-plantilla text-dark" >Fecha de entrega</h3>
     <hr>
-    
-
 
     <form name="FormFormaEntrega" [formGroup]='FormFormaEntrega' class="form-row full-width" >
+        <!-- campo FORMA DE ENTREGA -->
         <div class="form-group col-md-5 ">
-            <!-- campo FORMA DE ENTREGA -->
-            <label class="etiqueta-campo" for="formaEntrega"> Forma de Entrega<span class="text-danger">*</span>: </label>
-            <select class="form-control" formControlName="formaEntrega" name="formaEntrega" id="formaEntrega" >
-                <option *ngFor="let formaEntrega of ItemFormaEntrega">{{formaEntrega.Nombre}}</option>
+            <label class="etiqueta-campo" for="formaEntrega"> Forma de Entrega <span class="text-danger">*</span>: </label>
+            <select class="form-control" formControlName="Forma" name="formaEntrega" id="formaEntrega" >
+                <option *ngFor="let formaEntrega of ItemsFormaEntrega">{{formaEntrega.Nombre}}</option>
             </select>
         </div>
     </form>
 <!--si sacamos estas dos lineas de código funciona a medias-->
     <div class="container container-fechahora"></div>
-        <div class="tarjeta" *ngIf="FechaHora()">
+        <div class="tarjeta" >
+            {{FormFormaEntrega | json}}
             <!--campo fecha y hora de entrega-->
             <div class="form-group full-width">
                 <div class="row full-width">

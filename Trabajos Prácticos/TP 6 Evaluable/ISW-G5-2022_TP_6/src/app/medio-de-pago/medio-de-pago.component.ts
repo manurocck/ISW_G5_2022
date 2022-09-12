@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
@@ -21,7 +22,7 @@ export class MedioDePagoComponent implements OnInit {
     return 5;
   }
   totalChanguito(){
-    return 5000;
+    return 15000;
   }
 
   //SELECCION DE BOTONES
@@ -76,7 +77,10 @@ export class MedioDePagoComponent implements OnInit {
 
   FormPagoEfectivo = new FormGroup({
     Monto: new FormControl('',[
+      Validators.pattern('[0-9]*'),
       Validators.required,
+      Validators.min(this.totalChanguito()),
+      Validators.max(20000),
     ])
   });
 
@@ -93,7 +97,7 @@ export class MedioDePagoComponent implements OnInit {
     Vencimiento: new FormControl('',[
       Validators.required,
       Validators.pattern(
-        '(0[1-9]|1[012])[-/](20)[0-9]{2}'
+        '(0[1-9]|1[012])[-/](20)[2-3][0-9]'
       )
     ]),
     CodigoSeguridad: new FormControl('',[
@@ -110,13 +114,13 @@ export class MedioDePagoComponent implements OnInit {
     /* Hay que agregarle la lógica de submit
      * Guardar la info si es correcta y sino, dar error en los campos incorrectos
     */
-    
-    this.submitted = true;
-    if (this.seleccionado == 'Tarjeta' && this.FormRegistroTarjeta.invalid){
-      return;
-    } 
+   
+    //FORMULARIOS SON VÁLIDOS
+    if(!this.FormPagoEfectivo.invalid || !this.FormPagoEfectivo.invalid){
+      
+    }
 
-    this.estado.emit('E');
+   this.estado.emit('E');
     return;
   }
 
