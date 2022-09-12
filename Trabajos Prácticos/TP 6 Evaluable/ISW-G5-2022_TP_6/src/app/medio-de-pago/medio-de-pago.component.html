@@ -107,12 +107,12 @@
     </div>
     <div class=" navegacion row d-flex justify-content-between">
         <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
-        <button type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
+        <button type="submit" class="btn btn-siguiente" (click)="siguiente()"><i class="fa fa-check"></i>Siguiente</button>
     </div>
-    <!--texto: Revisar los datos ingresados...-->
+    <!--texto: Revisar los datos ingresados...   
     <div id="divMsjFormRegistro" class="row alert alert-danger" *ngIf="submitted && FormRegistroTarjeta.invalid">
         <i class="fa fa-exclamation-sign"></i>{{Mensaje}}
-    </div>
+    </div>-->
 </div>
 
 
