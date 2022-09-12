@@ -60,7 +60,7 @@
                         </div>
                         <div 
                             class="text-danger" 
-                            *ngIf="errorDePatron('NumeroTarjeta')">
+                            *ngIf="FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('pattern')">
                             formato xxxx-xxxx-xxxx-xxxx 
                         </div>                       
                     </div>
@@ -77,7 +77,8 @@
                                     [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
                                     && FormRegistroTarjeta.controls['Vencimiento'].errors}"/>
                                
-                                    <div class="text-danger" *ngIf="errorDeRequerido('Vencimiento')">
+                                    <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
+                                    && FormRegistroTarjeta.controls['Vencimiento'].hasError('required')">
                                     Dato Requerido.
                                 </div>
                                 <div class="text-danger" 

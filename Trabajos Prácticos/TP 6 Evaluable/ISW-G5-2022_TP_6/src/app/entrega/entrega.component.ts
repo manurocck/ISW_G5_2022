@@ -20,10 +20,6 @@ export class EntregaComponent implements OnInit {
   seleccionado = 'Lo antes posible';
 //
 
-  FormFormaEntrega = new FormGroup({
-
-    Forma: new FormControl(true, [Validators.required]),
-  })
 
   //SELECCION DE BOTONES
   seleccionar(medio:string){
@@ -39,6 +35,7 @@ export class EntregaComponent implements OnInit {
       return 'seleccionado';
     } else return '';
   }
+
   //VALIDACIONES
 
   validezCampo(campo:string){
@@ -48,6 +45,12 @@ export class EntregaComponent implements OnInit {
 
     else return '';
   }
+
+  //PATRONES DE VALIDACIÓN
+
+  FormFormaEntrega = new FormGroup({
+    Forma: new FormControl(true, [Validators.required]),
+  })
 
   FormFechaHora = new FormGroup({
     Fecha: new FormControl('',[
