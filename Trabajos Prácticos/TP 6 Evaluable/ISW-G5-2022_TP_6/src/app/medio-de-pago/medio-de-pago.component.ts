@@ -106,10 +106,9 @@ export class MedioDePagoComponent implements OnInit {
     */
     
     this.submitted = true;
-    if (this.FormRegistroTarjeta.invalid){
+    if (this.seleccionado == 'Tarjeta' && this.FormRegistroTarjeta.invalid){
       return;
     } 
-    
 
     this.estado.emit('E');
     return;

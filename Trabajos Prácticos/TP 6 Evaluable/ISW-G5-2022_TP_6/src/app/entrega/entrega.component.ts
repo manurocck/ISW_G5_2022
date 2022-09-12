@@ -62,6 +62,9 @@ export class EntregaComponent implements OnInit {
       Validators.required,
       Validators.maxLength(3),
       Validators.minLength(3),
+      Validators.pattern(
+        '0[0-9]|1[0-9]|2[0-3]\:[0-5][0-9]'
+      )
     ])
   });
   
