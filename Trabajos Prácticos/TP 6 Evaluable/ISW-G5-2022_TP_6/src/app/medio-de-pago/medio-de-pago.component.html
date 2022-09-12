@@ -30,39 +30,29 @@
     
         <!-- CAJA DE PAGO CON TARJETA -->
         <div class="container container-tarjeta">
-
             <!-- MEDIO DE PAGO TARJETA -->
-        <div class="tarjeta" *ngIf="seleccionado == 'Tarjeta'">
-            <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="form-row bg-ligth">
-                    <!--campo NOMBRE Y APELLIDO-->
+            <div class="tarjeta" *ngIf="seleccionado == 'Tarjeta'">
+                <form name="FormRegistroTarjeta" [formGroup]='FormRegistroTarjeta' class="form-row" >
+                    <!--campo NOMBRE Y APELLIDO [FUNCIONA]--> 
                     <div class="form-group full-width">
                         <label class="etiqueta-campo col-form-label" for="NombreApellido"> Nombre y Apellido <span class="text-danger">*</span></label> 
 
                         <input type="text" class="form-control col-md-12" formControlName="NombreApellido" name="NombreApellido" id="NombreApellido"
                             [ngClass]="validezCampo('NombreApellido')">
 
-                        <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['NombreApellido'].touched || submitted)
-                            && FormRegistroTarjeta.controls['NombreApellido'].hasError('required')">
-                            Dato Requerido.
-                        </div>
+                        <div class="text-danger" *ngIf="errorDeRequerido('NombreApellido')">Dato Requerido.</div>
                     </div>
                     <!--campo NUMERO DE TARJETA-->
                     <div class="form-group full-width">
-                        <label class="etiqueta-campo col-form-label" for="NumeroTarjeta">
-                            Numero de Tarjeta <span class="text-danger">*</span>
-                        </label>                       
+                        <label class="etiqueta-campo col-form-label" for="NumeroTarjeta"> Numero de Tarjeta <span class="text-danger">*</span></label>                       
                         <input type="text" class="form-control col-md-12" formControlName="NumeroTarjeta"
-                            [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['NumeroTarjeta'].touched || submitted)
-                            && FormRegistroTarjeta.controls['NumeroTarjeta'].errors}">
-                        <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['NumeroTarjeta'].touched || submitted)
-                            && FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('required')">
-                            Dato Requerido.
-                        </div>
-                        <div 
-                            class="text-danger" 
-                            *ngIf="FormRegistroTarjeta.controls['NumeroTarjeta'].hasError('pattern')">
-                            formato xxxx-xxxx-xxxx-xxxx 
-                        </div>                       
+                            [ngClass]="validezCampo('NumeroTarjeta')">
+                        
+                        <div class="text-danger" 
+                            *ngIf="errorDeRequerido('NumeroTarjeta')">Dato Requerido.</div>
+                        
+                        <div class="text-danger" 
+                            *ngIf="errorDePatron('NumeroTarjeta')">Solo números : XXXX-XXXX-XXXX-XXXX </div>                       
                     </div>
 
                     <!--campo VENCIMIENTO y CVC-->
@@ -70,38 +60,28 @@
                         <div class="row full-width">
                             <!--campo Vencimiento-->  
                             <div class="col-sm-4">
-                                <label class="col-form-label col-sm-12" for="Vencimiento">
-                                    Vencimiento <span class="text-danger">*</span>
-                                </label>
+                                <label class="col-form-label col-sm-12" for="Vencimiento">Vencimiento <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" formControlName="Vencimiento"
-                                    [ngClass]="{'is-invalid': (FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
-                                    && FormRegistroTarjeta.controls['Vencimiento'].errors}"/>
-                               
-                                    <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['Vencimiento'].touched || submitted)
-                                    && FormRegistroTarjeta.controls['Vencimiento'].hasError('required')">
-                                    Dato Requerido.
-                                </div>
+                                    [ngClass]="validezCampo('Vencimiento')"/>
+                                
                                 <div class="text-danger" 
-                                    *ngIf="FormRegistroTarjeta.controls['Vencimiento'].hasError('pattern')">
-                                    Formato MM/AAAA 
-                                </div>
+                                    *ngIf="errorDeRequerido('Vencimiento')">Dato Requerido.</div>
+                                <div class="text-danger" 
+                                    *ngIf="errorDePatron('Vencimiento')">Formato MM/AAAA </div>
                             </div>
                             <!--campo CVC-->
                             <div class="col-md-5">
-                                <label class="col-form-label row" for="CodigoSeguridad">
-                                    Codigo de Seguridad <span class="text-danger">*</span>
-                                </label>
+                                <label class="col-form-label row" for="CodigoSeguridad">Codigo de Seguridad <span class="text-danger">*</span></label>
                                 
                                 <input type="text" class="form-control" formControlName="CodigoSeguridad"
                                     [ngClass]="validezCampo('CodigoSeguridad')">
-                                <div class="text-danger" *ngIf="(FormRegistroTarjeta.controls['CodigoSeguridad'].touched || submitted)
-                                    && FormRegistroTarjeta.controls['CodigoSeguridad'].hasError('required')">
-                                    Dato Requerido.
-                                </div>
+
+                                <div class="text-danger" 
+                                    *ngIf="errorDeRequerido('CodigoSeguridad')">Dato Requerido.</div>
                             </div>
                         </div>
                     </div>
-            </form>
+                </form>
             </div>
         </div> 
     </div>

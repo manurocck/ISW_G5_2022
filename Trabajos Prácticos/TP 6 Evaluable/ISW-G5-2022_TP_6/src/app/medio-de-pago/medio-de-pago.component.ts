@@ -51,9 +51,10 @@ export class MedioDePagoComponent implements OnInit {
 
   validezCampo(campo:string){
     if( (this.FormRegistroTarjeta.controls[campo].touched || this.submitted)
-          && this.FormRegistroTarjeta.controls[campo].errors)
-    return 'is-invalid';
-
+          && this.FormRegistroTarjeta.controls[campo].errors){
+  
+      return 'is-invalid';
+    }
     else return '';
   }
   errorDePatron(campo:string){
@@ -74,6 +75,9 @@ export class MedioDePagoComponent implements OnInit {
   //PATRONES DE VALIDACION
 
   FormRegistroTarjeta = new FormGroup({
+    NombreApellido: new FormControl('',[
+      Validators.required,
+    ]),
     NumeroTarjeta: new FormControl('', [
       Validators.required,
       Validators.pattern(

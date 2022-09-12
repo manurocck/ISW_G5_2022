@@ -3,10 +3,9 @@
     <hr>
     <form name="FormDireccion" [formGroup]='FormFormaEntrega' class="form-row" >
         <div class="row full-width">
-            <!-- campo Forma de entrega -->
+            <!-- campo FORMA DE ENTREGA -->
             <div class="form-group col-md-5">
-                <label class="etiqueta-campo" for="formaentrega"> Forma de Entrega<span
-                    class="text-danger">*</span>: </label>
+                <label class="etiqueta-campo" for="formaentrega"> Forma de Entrega<span class="text-danger">*</span>: </label>
                 <select class="form-control" formControlName="formaentrega" name="formaentrega" id="formaentrega" >
                     <option *ngFor="let formaentrega of ItemFormaEntrega">{{formaentrega.Nombre}}</option>
                 </select>
