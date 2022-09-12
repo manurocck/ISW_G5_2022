@@ -6,44 +6,37 @@
         <!-- campo FORMA DE ENTREGA -->
         <div class="form-group col-md-5 ">
             <label class="etiqueta-campo" for="formaEntrega"> Forma de Entrega <span class="text-danger">*</span>: </label>
-            <select class="form-control" formControlName="Forma" name="formaEntrega" id="formaEntrega" >
-                <option *ngFor="let formaEntrega of ItemsFormaEntrega">{{formaEntrega.Nombre}}</option>
+            <select class="form-control" formControlName="Forma" name="formaEntrega" id="formaEntrega" 
+                [(ngModel)]="seleccionForma">
+                <option value="loAntesPosible">Lo antes posible</option>
+                <option value="fechaYhora">Elegir fecha y hora</option>
             </select>
         </div>
     </form>
-<!--si sacamos estas dos lineas de código funciona a medias-->
-    <div class="container container-fechahora"></div>
-        <div class="tarjeta" >
-            {{FormFormaEntrega | json}}
-            <!--campo fecha y hora de entrega-->
-            <div class="form-group full-width">
-                <div class="row full-width">
-                    <!--campo FECHA-->
-                    <div class="col-md-5">
-                        <label class="col-form-label col-md-12" for="Fecha">
-                            Fecha de Entrega <span class="text-danger">*</span>
-                        </label>
-                        <input type="text" class="form-control col-md-12" formControlName="Fecha" placeholder="DD/MM/AAAA"
+    <!-- campo FECHA Y HORA -->
+    <form [formGroup]='FormFechaHora' class="tarjeta" *ngIf="seleccionForma == 'fechaYhora'">
+        <div class="form-group full-width">
+            <div class="row full-width">
+                <!--campo FECHA-->
+                <div class="col-md-5">
+                    <label class="col-form-label col-md-12" for="Fecha"> Fecha de Entrega <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control col-md-12" formControlName="Fecha" placeholder="DD/MM/AAAA"
                         [ngClass]="validezCampo('Fecha')">
-                        <div class="text-danger" *ngIf="validezCampo('Fecha')">
-                            Dato Requerido.
-                        </div>
+                        <div class="text-danger" *ngIf="errorDeRequerido('Fecha')">Dato Requerido.</div>
                     </div>
                     
                     <!--campo HORA-->
                     <div class="col-md-3">
                         <label class="col-form-label row" for="Hora" placeholder="HH:MM">
-                            Hora de Entrega<span class="text-danger">*</span>
-                        </label>
-                        <input type="text" class="form-control row" formControlName="Hora"
-                        [ngClass]="validezCampo('Hora')">
-                        <div class="text-danger" *ngIf="validezCampo('Hora')">
-                            Dato Requerido.
-                        </div>
+                        Hora de Entrega<span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control row" formControlName="Hora"
+                    [ngClass]="validezCampo('Hora')">
+                    <div class="text-danger" *ngIf="validezCampo('Hora')">
+                        Dato Requerido.
                     </div>
                 </div>
             </div>
         </div>
-    
-    
+    </form>
 </div>

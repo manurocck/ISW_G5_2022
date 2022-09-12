@@ -13,7 +13,7 @@ import {
 })
 export class EntregaComponent implements OnInit {
 
-  ItemsFormaEntrega = TiposEntregas;
+  seleccionForma = '';
   ngOnInit(): void {
     
   }
@@ -51,6 +51,20 @@ export class EntregaComponent implements OnInit {
     return 'is-invalid';
 
     else return '';
+  }
+  errorDePatron(campo:string){
+    if( (this.FormFechaHora.controls[campo].touched || this.submitted)
+          && this.FormFechaHora.controls[campo].hasError('pattern'))
+    return true;
+
+    else return false;
+  }
+  errorDeRequerido(campo:string){
+    if( (this.FormFechaHora.controls[campo].touched || this.submitted)
+          && this.FormFechaHora.controls[campo].hasError('required'))
+    return true;
+
+    else return false;
   }
 
   //PATRONES DE VALIDACIÓN

@@ -17,6 +17,22 @@ export class MedioDePagoComponent implements OnInit {
 
   seleccionado = 'Efectivo';
   
+  submitted = false;
+  
+  Mensaje = "Revisar los datos ingresados..."
+  siguiente(){ 
+    
+
+    //FORMULARIOS SON VÁLIDOS
+    if(!this.FormPagoEfectivo.invalid || !this.FormPagoEfectivo.invalid){
+      
+    }
+
+    this.estado.emit('D');
+    return;
+  }
+
+
   //FUNCIONES CON LÓGICA DE NEGOCIO EXTERNAS
   cantidadProductosChanguito(){
     return 5;
@@ -107,21 +123,5 @@ export class MedioDePagoComponent implements OnInit {
     ])
   });
 
-  submitted = false;
-  
-  Mensaje = "Revisar los datos ingresados..."
-  siguiente(){ 
-    /* Hay que agregarle la lógica de submit
-     * Guardar la info si es correcta y sino, dar error en los campos incorrectos
-    */
-   
-    //FORMULARIOS SON VÁLIDOS
-    if(!this.FormPagoEfectivo.invalid || !this.FormPagoEfectivo.invalid){
-      
-    }
-
-   this.estado.emit('E');
-    return;
-  }
 
 }

@@ -1,7 +1,6 @@
 import { Output, EventEmitter } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Direccion } from 'src/app/models/direccion';
-import { Ciudades, Ciudad } from 'src/app/models/ciudad';
+import {Direccion , Ciudades } from 'src/app/models/direccion';
 import {
   FormGroup,
   FormControl,
@@ -26,12 +25,21 @@ export class DireccionEnvioComponent implements OnInit {
   // COMUNICACIÓN CON EL COMPONENTE PRINCIPAL
 
   @Output() estado = new EventEmitter<string>();
-  siguiente(){ 
-    /* Hay que agregarle la lógica de submit
-     * Guardar la info si es correcta y sino, dar error en los campos incorrectos
-    */
+  @Output() info = new EventEmitter<Direccion>();
+  direccion = new Direccion();
 
-    this.estado.emit('P');
+  siguiente(){ 
+    if(!this.FormRegistroDireccion.invalid){
+      //PERSISTE
+      this.direccion.Calle = this.FormRegistroDireccion.value.Calle;
+      this.direccion.Numero = parseInt(this.FormRegistroDireccion.value.Numero);
+      this.direccion.Ciudad = this.FormRegistroDireccion.value.Ciudad;
+      this.direccion.Referencia = this.FormRegistroDireccion.value.Referencia;
+      this.info.emit(this.direccion);
+      //Redirige a ENTREGA
+      this.estado.emit('E');
+      return;
+    }
     return;
   }
   

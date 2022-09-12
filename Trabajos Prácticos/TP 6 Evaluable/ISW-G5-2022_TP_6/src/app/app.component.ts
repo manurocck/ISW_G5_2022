@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Direccion } from './models/direccion';
 
 @Component({
   selector: 'app-root',
@@ -17,5 +18,13 @@ export class AppComponent {
   
   estadoPedido = 'D';
 
+  direccionIngresada = new Direccion();
   
+  mostrar(){
+    console.log(this.direccionIngresada.Calle);
+    console.log(this.direccionIngresada.Numero);
+    console.log(this.direccionIngresada.Referencia);
+    console.log(this.direccionIngresada.Ciudad);
+  }
+
 }

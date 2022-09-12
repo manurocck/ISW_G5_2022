@@ -44,7 +44,7 @@
                 <label class="etiqueta-campo" for="ciudad"> Ciudad<span
                     class="text-danger">*</span>: </label>
                 <select class="form-control" formControlName="Ciudad" name="ciudad" id="ciudad" >
-                    <option *ngFor="let ciudad of ItemCiudad">{{ciudad.Nombre}}</option>
+                    <option [value]="ciudad.Nombre" *ngFor="let ciudad of ItemCiudad">{{ciudad.Nombre}}</option>
                 </select>
             </div>
 
