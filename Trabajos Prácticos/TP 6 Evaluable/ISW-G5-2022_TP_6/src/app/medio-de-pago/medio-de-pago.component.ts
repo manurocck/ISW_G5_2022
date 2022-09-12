@@ -56,17 +56,24 @@ export class MedioDePagoComponent implements OnInit {
 
     else return '';
   }
+  errorDePatron(campo:string){
+    if( (this.FormRegistroTarjeta.controls[campo].touched || this.submitted)
+          && this.FormRegistroTarjeta.controls[campo].hasError('pattern'))
+    return true;
+
+    else return false;
+  }
+  errorDeRequerido(campo:string){
+    if( (this.FormRegistroTarjeta.controls[campo].touched || this.submitted)
+          && this.FormRegistroTarjeta.controls[campo].hasError('required'))
+    return true;
+
+    else return false;
+  }
+
+  //PATRONES DE VALIDACION
 
   FormRegistroTarjeta = new FormGroup({
-    Cantidad: new FormControl('',[
-      Validators.required,
-    ]),
-    Total: new FormControl('',[
-      Validators.required,
-    ]),
-    NombreApellido: new FormControl('',[
-      Validators.required,
-    ]),
     NumeroTarjeta: new FormControl('', [
       Validators.required,
       Validators.pattern(
@@ -92,6 +99,9 @@ export class MedioDePagoComponent implements OnInit {
     /* Hay que agregarle la lógica de submit
      * Guardar la info si es correcta y sino, dar error en los campos incorrectos
     */
+
+
+
 
     this.estado.emit('E');
     return;
