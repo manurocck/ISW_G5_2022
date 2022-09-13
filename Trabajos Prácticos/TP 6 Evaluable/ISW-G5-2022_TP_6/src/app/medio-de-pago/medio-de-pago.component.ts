@@ -1,7 +1,8 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
-import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {FormGroup, FormControl, Validators, AbstractControl} from "@angular/forms";
+import { MedioPago } from '../models/medio-de-pago';
 
 @Component({
   selector: 'app-medio-de-pago',
@@ -16,20 +17,39 @@ export class MedioDePagoComponent implements OnInit {
   }
 
   seleccionado = 'Efectivo';
-  
   submitted = false;
-  
   Mensaje = "Revisar los datos ingresados..."
+
+  //PERSISTENCIA - COMUNICACION CON COMPONENTE PRINCIPAL
+  //NAVEGACIÓN DE BOTONES
+  
+  @Output() estado = new EventEmitter<string>();
+  @Output() info = new EventEmitter<MedioPago>();
+
+  medioPago = new MedioPago();
+
   siguiente(){ 
-    
+    //Seleccionó efectivo y la formEfectivo es válida
+    if((this.seleccionado == 'Efectivo') && !this.FormPagoEfectivo.invalid){
+      this.medioPago.monto = parseInt(this.FormPagoEfectivo.value.Monto);
 
-    //FORMULARIOS SON VÁLIDOS
-    if(!this.FormPagoEfectivo.invalid || !this.FormPagoEfectivo.invalid){
-      
+      this.info.emit(this.medioPago);
+      this.estado.emit('E');
+    }//Seleccionó tarjeta y la formTarjeta es válida
+    else if((this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid){
+      this.medioPago.nombreApellido = this.FormRegistroTarjeta.value.NombreApellido;
+      this.medioPago.numeroTarjeta  = this.FormRegistroTarjeta.value.NumeroTarjeta;
+      this.medioPago.vencimiento    = this.FormRegistroTarjeta.value.Vencimiento;
+      this.medioPago.cvc            = parseInt(this.FormRegistroTarjeta.value.CodigoSeguridad);
+
+      this.info.emit(this.medioPago);
+      this.estado.emit('E');
     }
-
-    this.estado.emit('D');
     return;
+  }
+
+  volver(){
+    this.estado.emit('D');
   }
 
 
@@ -44,6 +64,7 @@ export class MedioDePagoComponent implements OnInit {
   //SELECCION DE BOTONES
   seleccionar(medio:string){
     this.seleccionado = medio;
+    this.medioPago.tipo = medio;
   }
   quiereEfectivo(){
     if (this.seleccionado == 'Efectivo'){
@@ -56,16 +77,14 @@ export class MedioDePagoComponent implements OnInit {
     } else return '';
   }
 
-  //NAVEGACIÓN DE BOTONES
   
-  @Output() estado = new EventEmitter<string>();
-  
-  volver(){
-    this.estado.emit('D');
-  }
 
   //VALIDACIONES
-
+  
+  fechaDeHoy = new Date();
+  mesHoy = this.fechaDeHoy.getMonth();
+  anioHoy = this.fechaDeHoy.getFullYear();
+  
   validezCampo(campo:string){
     if( (this.FormRegistroTarjeta.controls[campo].touched || this.submitted)
           && this.FormRegistroTarjeta.controls[campo].errors){
@@ -88,6 +107,7 @@ export class MedioDePagoComponent implements OnInit {
 
     else return false;
   }
+    
 
   //PATRONES DE VALIDACION
 
@@ -114,7 +134,8 @@ export class MedioDePagoComponent implements OnInit {
       Validators.required,
       Validators.pattern(
         '(0[1-9]|1[012])[-/](20)[2-3][0-9]'
-      )
+      ),
+//      this.esFuturo
     ]),
     CodigoSeguridad: new FormControl('',[
       Validators.required,

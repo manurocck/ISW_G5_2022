@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Direccion } from './models/direccion';
+import { MedioPago } from './models/medio-de-pago';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +17,19 @@ export class AppComponent {
     E: '(Entrega)'
   };
   
-  estadoPedido = 'D';
+  estadoPedido = 'P';
 
-  direccionIngresada = new Direccion();
+
+  ingresoDireccion = new Direccion();
+  ingresoMedioPago = new MedioPago();
   
   mostrar(){
-    console.log(this.direccionIngresada.Calle);
-    console.log(this.direccionIngresada.Numero);
-    console.log(this.direccionIngresada.Referencia);
-    console.log(this.direccionIngresada.Ciudad);
+    console.log(this.ingresoDireccion.Calle);
+    console.log(this.ingresoDireccion.Numero);
+    console.log(this.ingresoDireccion.Referencia);
+    console.log(this.ingresoDireccion.Ciudad);
+
+    console.log(this.ingresoMedioPago.mostrar());
   }
 
 }

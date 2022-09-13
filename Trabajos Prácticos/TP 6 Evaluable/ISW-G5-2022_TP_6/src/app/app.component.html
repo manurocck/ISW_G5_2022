@@ -5,8 +5,8 @@
     </div>
     <!--
     -->
-    <app-medio-de-pago (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'P'"></app-medio-de-pago>
-    <app-direccion-envio (info)="direccionIngresada = $event; mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'D'"></app-direccion-envio>
+    <app-medio-de-pago (info)="ingresoMedioPago = $event; ingresoMedioPago.mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'P'"></app-medio-de-pago>
+    <app-direccion-envio (info)="ingresoDireccion = $event; mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'D'"></app-direccion-envio>
     <app-entrega (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'E'"></app-entrega>
     
 </div>

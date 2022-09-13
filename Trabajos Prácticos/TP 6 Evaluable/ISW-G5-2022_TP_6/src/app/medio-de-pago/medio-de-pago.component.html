@@ -27,8 +27,8 @@
             <label class="etiqueta-campo" for="calle"> ¿Con cuánto vas a pagar? </label> 
             <input type="text" class="form-control" formControlName="Monto" placeholder="Monto" name="Monto" id="Monto">
             <div class=" navegacion row d-flex justify-content-between">
-                <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
-                <button [disabled]="FormPagoEfectivo.invalid" type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
+                <button type="button" class="btn btn-siguiente" (click)="volver()">Volver</button>
+                <button type="button" [disabled]="FormPagoEfectivo.invalid" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
             </div>
         </form>
     
@@ -87,8 +87,8 @@
                 </div>
             </div>
             <div class=" navegacion row d-flex justify-content-between">
-                <button type="submit" class="btn btn-siguiente" (click)="volver()">Volver</button>
-                <button [disabled]="FormRegistroTarjeta.invalid" type="submit" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
+                <button type="button" class="btn btn-siguiente" (click)="volver()">Volver</button>
+                <button type="button" [disabled]="FormRegistroTarjeta.invalid" class="btn btn-siguiente" (click)="siguiente()">Siguiente</button>
             </div>
         </form> 
     </div>

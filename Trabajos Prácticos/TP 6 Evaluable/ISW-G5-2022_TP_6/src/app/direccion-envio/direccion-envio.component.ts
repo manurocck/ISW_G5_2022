@@ -26,6 +26,7 @@ export class DireccionEnvioComponent implements OnInit {
 
   @Output() estado = new EventEmitter<string>();
   @Output() info = new EventEmitter<Direccion>();
+  
   direccion = new Direccion();
 
   siguiente(){ 
@@ -37,7 +38,7 @@ export class DireccionEnvioComponent implements OnInit {
       this.direccion.Referencia = this.FormRegistroDireccion.value.Referencia;
       this.info.emit(this.direccion);
       //Redirige a ENTREGA
-      this.estado.emit('E');
+      this.estado.emit('P');
       return;
     }
     return;
