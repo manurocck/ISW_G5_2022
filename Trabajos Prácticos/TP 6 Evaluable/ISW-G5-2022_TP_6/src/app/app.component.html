@@ -10,7 +10,15 @@
     
     <div *ngIf="estadoPedido=='F'">
         <h1>TU PEDIDO ESTÁ EN MARCHA</h1>
-        <!---->
+        <p>
+            {{ingresoDireccion | json}}
+        </p>
+        <p>
+            {{ingresoMedioPago | json}}
+        </p>
+        <p>
+            {{ingresoEntrega | json}}
+        </p>
     </div>
 
 </div>

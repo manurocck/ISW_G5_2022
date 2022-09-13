@@ -18,7 +18,7 @@ import {
 export class DireccionEnvioComponent implements OnInit {
   
   ItemCiudad = Ciudades;
-  ngOnInit(): void {  
+  ngOnInit(): void { 
   }
   
   // COMUNICACIÓN CON EL COMPONENTE PRINCIPAL
@@ -28,7 +28,20 @@ export class DireccionEnvioComponent implements OnInit {
   
   direccion = new Direccion();
 
+  completarDatos(){
+    if(this.submitted){
+      this.FormRegistroDireccion.setValue({
+        Calle : this.FormRegistroDireccion.value.Calle,
+        Numero : this.FormRegistroDireccion.value.Numero,
+        Ciudad : this.FormRegistroDireccion.value.Ciudad,
+        Referencia : this.FormRegistroDireccion.value.Referencia,
+      });
+    }
+    return true;
+  }
+
   siguiente(){ 
+
     if(!this.FormRegistroDireccion.invalid){
       //PERSISTE
       this.direccion.Calle = this.FormRegistroDireccion.value.Calle;
@@ -40,6 +53,8 @@ export class DireccionEnvioComponent implements OnInit {
       this.estado.emit('P');
       return;
     }
+    this.submitted = true;
+
     return;
   }
   
@@ -71,6 +86,7 @@ export class DireccionEnvioComponent implements OnInit {
     else return false;
   }
   
+
   // patrones de validacion
   FormRegistroDireccion = new FormGroup({
     Calle: new FormControl('', 
