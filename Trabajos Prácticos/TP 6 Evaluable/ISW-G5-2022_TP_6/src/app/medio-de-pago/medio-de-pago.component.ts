@@ -35,7 +35,7 @@ export class MedioDePagoComponent implements OnInit {
       this.info.emit(this.medioPago);
       this.estado.emit('E');
     }//Seleccionó tarjeta y la formTarjeta es válida
-    else if((this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid){
+    else if((this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid && this.luhnAlgorithm(this.FormRegistroTarjeta.value.NumeroTarjeta)){
       this.medioPago.nombreApellido = this.FormRegistroTarjeta.value.NombreApellido;
       this.medioPago.numeroTarjeta  = this.FormRegistroTarjeta.value.NumeroTarjeta;
       this.medioPago.vencimiento    = this.FormRegistroTarjeta.value.Vencimiento;
@@ -87,13 +87,15 @@ export class MedioDePagoComponent implements OnInit {
 
   //Te chequea la tarjeta crack
   luhnAlgorithm(value:string) {
+    console.log('entro');
     // accept only digits, dashes or spaces
         if (/[^0-9-\s]+/.test(value)) return false;
     
     // The Luhn Algorithm. It's so pretty.
         var nCheck = 0, nDigit = 0, bEven = false;
         value = value.replace(/\D/g, "");
-    
+        console.log(value)
+
         for (var n = value.length - 1; n >= 0; n--) {
             var cDigit = value.charAt(n),
                 nDigit = parseInt(cDigit, 10);
@@ -105,6 +107,8 @@ export class MedioDePagoComponent implements OnInit {
             nCheck += nDigit;
             bEven = !bEven;
         }
+
+        console.log((nCheck % 10) == 0)
     
         return (nCheck % 10) == 0;
   }
@@ -151,7 +155,7 @@ export class MedioDePagoComponent implements OnInit {
     NumeroTarjeta: new FormControl('', [
       Validators.required,
       Validators.pattern(
-        '[0-9]{4}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}'
+        '[0-9]{16}'
       )
     ]),
     Vencimiento: new FormControl('',[
