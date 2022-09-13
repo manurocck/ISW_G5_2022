@@ -1,4 +1,8 @@
 /** ESTILO DE ESTRUCTURA **/
+.padding-2{
+    padding: 2%;
+}
+
 .full-width{
     width: 100%;
 }

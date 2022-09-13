@@ -1,8 +1,11 @@
+.container-seleccion{
+    width: 100%;
+}
 .container-efectivo{
     padding-bottom: 2%;
 }
 .container-tarjeta{
-    width:90%;
+    border-radius: 5px;
     height: 90%;
     background-color: #F9EA9A;
 }
@@ -27,10 +30,17 @@ p{
 }
 
 @media only screen and (max-width: 768) {
+    .input-lg{
+        width:80%;
+    }
     .btn-selectivo{
         width: 100%;
     }
+    .navegacion{
+        padding: 0%;
+    }
     .container-tarjeta{
+        padding-inline: 0%;
         width:100%;
     }
 }
