@@ -134,7 +134,6 @@ export class MedioDePagoComponent implements OnInit {
       Validators.pattern(
         '(0[1-9]|1[012])[-/](20)[2-3][0-9]'
       ),
-//      this.esFuturo
     ]),
     CodigoSeguridad: new FormControl('',[
       Validators.required,

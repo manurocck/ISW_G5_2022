@@ -9,7 +9,8 @@
     <app-entrega (info)="ingresoEntrega = $event; ingresoEntrega.mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'E'"></app-entrega>
     
     <div *ngIf="estadoPedido=='F'">
-        <h1>EL PEDIDO ESTÁ EN MARCHA</h1>
+        <h1>TU PEDIDO ESTÁ EN MARCHA</h1>
+        <!---->
     </div>
 
 </div>
