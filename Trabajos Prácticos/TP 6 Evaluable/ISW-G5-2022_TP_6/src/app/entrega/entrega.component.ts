@@ -53,7 +53,7 @@ export class EntregaComponent implements OnInit {
 
     let diferenciaDias = fechaI - hoy;
 
-    return diferenciaDias <= 5;
+    return (diferenciaDias <= 5 && diferenciaDias >= 1);
   }
   
   siguiente(){
@@ -69,6 +69,8 @@ export class EntregaComponent implements OnInit {
       this.ingresoEntrega.hora = this.FormFechaHora.value.Hora;
       this.info.emit(this.ingresoEntrega);
       this.estado.emit('F');
+    }else if(!this.entraEnRango(this.FormFechaHora.value.Fecha)){
+      alert('La fecha ingresada es incorrecta');
     }
       
 

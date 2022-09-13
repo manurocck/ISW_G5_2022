@@ -1,24 +1,22 @@
 <div class="container bg-light">
     <div class="header-plantilla text-light">
         <p>Realizar Pedido a</p>
-        <h3>COMERCIO A</h3>
+        <h3>CAFÉ DEL POPPOLO</h3>
     </div>
 
     <app-medio-de-pago (info)="ingresoMedioPago = $event; ingresoMedioPago.mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'P'"></app-medio-de-pago>
     <app-direccion-envio (info)="ingresoDireccion = $event; mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'D'"></app-direccion-envio>
     <app-entrega (info)="ingresoEntrega = $event; ingresoEntrega.mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'E'"></app-entrega>
     
-    <div *ngIf="estadoPedido=='F'">
+    <div class="text-center" *ngIf="estadoPedido=='F'">
         <h1>TU PEDIDO ESTÁ EN MARCHA</h1>
-        <p>
-            {{ingresoDireccion | json}}
-        </p>
-        <p>
-            {{ingresoMedioPago | json}}
-        </p>
-        <p>
-            {{ingresoEntrega | json}}
-        </p>
+        <hr>
+        <div class="etiqueta-campo"><h3>Dirección de envío</h3></div>
+        <p>{{ingresoDireccion.Calle}} {{ingresoDireccion.Numero}}</p>
+        <div class="etiqueta-campo"><h3>Forma de pago</h3></div>
+        <p>{{ingresoMedioPago.tipo}}</p>
+        <div class="etiqueta-campo"><h3>Forma de entrega</h3></div>
+        <p>{{ingresoEntrega.tipo}}</p>
     </div>
 
 </div>

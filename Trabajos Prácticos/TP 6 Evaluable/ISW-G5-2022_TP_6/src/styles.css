@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
 /** ESTILO DE ESTRUCTURA **/
 body{
+    font-family: 'Roboto', sans-serif;
+    
     background-image: url('src/assets/bg.jpg');
     background-size:cover;
 }
@@ -16,6 +20,7 @@ body{
     color: black;
     margin-bottom: 0;
     margin-left:4px;
+    
 }
 
 .etiqueta-campo{
@@ -24,9 +29,10 @@ body{
 
 /** ESTILO DE BOTONES **/
 .btn-selectivo{
-    color: #5d3a00;
+    
     background-color: #F9EA9A;
 
+    border-radius: 10px;
     border: 1px solid #5d3a00;
     width: 20%; 
     height: 5%;    
@@ -37,15 +43,19 @@ body{
     border: 1px solid #5d3a00;
     width: 10%; 
     height: 5%;
-
+    
     font-weight: 500;
 }
 
 
 .btn-siguiente{
-    color: #5d3a00; 
+    background-color: #5d3a00;
+
+    color: white;
+    font-weight: 600;
     border: 1px solid #5d3a00;
     margin-right: 2%;
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 780px) {

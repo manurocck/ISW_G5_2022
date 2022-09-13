@@ -34,8 +34,8 @@
                 
                 <!--campo HORA-->
                 <div class="col-md-6">
-                    <label class="etiqueta-campo row" for="Hora" placeholder="HH:MM">Hora de Entrega<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control row" formControlName="Hora"
+                    <label class="etiqueta-campo row" for="Hora">Hora de Entrega<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control row" formControlName="Hora" placeholder="HH:MM"
                         [ngClass]="validezCampo('Hora')">
                     <div class="text-danger" *ngIf="validezCampo('Hora')">Dato Requerido.</div>
                 </div>

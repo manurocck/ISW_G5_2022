@@ -16,6 +16,11 @@ export class MedioDePagoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cantidadEnCarrito = 5;
+  totalApagar = 15000;
+
+
+
   seleccionado = 'Efectivo';
   submitted = false;
 
@@ -29,13 +34,13 @@ export class MedioDePagoComponent implements OnInit {
 
   siguiente(){ 
     //Seleccionó efectivo y la formEfectivo es válida
-    if((this.seleccionado == 'Efectivo') && !this.FormPagoEfectivo.invalid){
+    if((this.seleccionado == 'Efectivo') && !this.FormPagoEfectivo.invalid && !(this.cantidadEnCarrito == 0)){
       this.medioPago.monto = parseInt(this.FormPagoEfectivo.value.Monto);
 
       this.info.emit(this.medioPago);
       this.estado.emit('E');
     }//Seleccionó tarjeta y la formTarjeta es válida
-    else if((this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid && this.luhnAlgorithm(this.FormRegistroTarjeta.value.NumeroTarjeta) && this.validateExpiry(this.FormRegistroTarjeta.value.Vencimiento)){
+    else if(!(this.cantidadEnCarrito == 0) && (this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid && this.luhnAlgorithm(this.FormRegistroTarjeta.value.NumeroTarjeta) && this.validateExpiry(this.FormRegistroTarjeta.value.Vencimiento)){
       this.medioPago.nombreApellido = this.FormRegistroTarjeta.value.NombreApellido;
       this.medioPago.numeroTarjeta  = this.FormRegistroTarjeta.value.NumeroTarjeta;
       this.medioPago.vencimiento    = this.FormRegistroTarjeta.value.Vencimiento;
@@ -43,6 +48,10 @@ export class MedioDePagoComponent implements OnInit {
 
       this.info.emit(this.medioPago);
       this.estado.emit('E');
+    }else{
+      if(this.cantidadEnCarrito == 0){
+        alert('El carrito está vacío');
+      }
     }
     return;
   }
@@ -54,10 +63,10 @@ export class MedioDePagoComponent implements OnInit {
 
   //FUNCIONES CON LÓGICA DE NEGOCIO EXTERNAS
   cantidadProductosChanguito(){
-    return 5;
+    return this.cantidadEnCarrito;
   }
   totalChanguito(){
-    return 15000;
+    return this.totalApagar;
   }
 
   //SELECCION DE BOTONES
@@ -74,6 +83,10 @@ export class MedioDePagoComponent implements OnInit {
     if (this.seleccionado == 'Tarjeta'){
       return 'seleccionado';
     } else return '';
+  }
+  vaciarCarrito(){
+    this.cantidadEnCarrito = 0;
+    this.totalApagar = 0;
   }
 
   
