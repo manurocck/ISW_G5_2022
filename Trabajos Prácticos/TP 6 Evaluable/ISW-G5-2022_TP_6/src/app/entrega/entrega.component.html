@@ -2,9 +2,9 @@
     <h3 class="titulo-plantilla text-dark" >Fecha de entrega</h3>
     <hr>
 
-    <form name="FormFormaEntrega" [formGroup]='FormFormaEntrega' class="form-row full-width" >
+    <form name="FormFormaEntrega" [formGroup]='FormFormaEntrega' class="container" >
         <!-- campo FORMA DE ENTREGA -->
-        <div class="form-group col-md-5 ">
+        <div class="form-group row">
             <label class="etiqueta-campo" for="formaEntrega"> Forma de Entrega <span class="text-danger">*</span>: </label>
             <select class="form-control" formControlName="Forma" name="formaEntrega" id="formaEntrega" 
                 [(ngModel)]="seleccionForma">
@@ -12,43 +12,40 @@
                 <option value="fechaYhora">Elegir fecha y hora</option>
             </select>
         </div>
-        <div class="row justify-content-between" *ngIf="seleccionForma == 'loAntesPosible'">
-            <button class="btn btn-siguiente" name="siguiente float-end" type="button" id="siguiente" 
+        <div class="row justify-content-between full-width" *ngIf="seleccionForma == 'loAntesPosible'">
+            <button class="btn btn-siguiente"  type="button" id="siguiente" 
             (click)="volver()">Volver</button>
-            <button class="btn btn-siguiente" name="siguiente float-end" type="button" id="siguiente" 
-            (click)="siguiente()">Siguiente</button>
+            <button class="btn btn-siguiente"  type="button" id="siguiente" 
+            (click)="siguiente()">CONFIRMAR PEDIDO</button>
         </div>
     </form>
+    
     <!-- campo FECHA Y HORA -->
-    <form [formGroup]='FormFechaHora' class="tarjeta" *ngIf="seleccionForma == 'fechaYhora'">
-        <div class="form-group full-width">
-            <div class="row full-width">
+    <form [formGroup]='FormFechaHora' class="tarjeta">
+        <div class="container justify-content-center full-width" *ngIf="seleccionForma == 'fechaYhora'">
+            <div class="row form-group">
                 <!--campo FECHA-->
-                <div class="col-md-5">
-                    <label class="col-form-label col-md-12" for="Fecha"> Fecha de Entrega <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control col-md-12" formControlName="Fecha" placeholder="DD/MM/AAAA"
+                <div class="col-md-6">
+                    <label class="etiqueta-campo row" for="Fecha"> Fecha de Entrega <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control row" formControlName="Fecha" placeholder="DD/MM/AAAA"
                         [ngClass]="validezCampo('Fecha')">
-                        <div class="text-danger" *ngIf="errorDeRequerido('Fecha')">Dato Requerido.</div>
-                    </div>
-                    
-                    <!--campo HORA-->
-                    <div class="col-md-3">
-                        <label class="col-form-label row" for="Hora" placeholder="HH:MM">
-                        Hora de Entrega<span class="text-danger">*</span>
-                    </label>
+                    <div class="text-danger" *ngIf="errorDeRequerido('Fecha')">Dato Requerido.</div>
+                </div>
+                
+                <!--campo HORA-->
+                <div class="col-md-6">
+                    <label class="etiqueta-campo row" for="Hora" placeholder="HH:MM">Hora de Entrega<span class="text-danger">*</span></label>
                     <input type="text" class="form-control row" formControlName="Hora"
-                    [ngClass]="validezCampo('Hora')">
-                    <div class="text-danger" *ngIf="validezCampo('Hora')">
-                        Dato Requerido.
-                    </div>
+                        [ngClass]="validezCampo('Hora')">
+                    <div class="text-danger" *ngIf="validezCampo('Hora')">Dato Requerido.</div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-between">
-            <button class="btn btn-siguiente" name="siguiente float-end" type="button" id="siguiente" 
-            (click)="volver()">Volver</button>
-            <button class="btn btn-siguiente" name="siguiente float-end" type="button"
-                [disabled]="FormFechaHora.invalid" (click)="siguiente()">Siguiente</button>
+            <div class="row justify-content-between">
+                <button class="btn btn-siguiente" name="btn-siguiente float-end" type="button" id="siguiente" 
+                (click)="volver()">Volver</button>
+                <button class="btn btn-siguiente" name="btn-siguiente float-end" type="button"
+                    [disabled]="FormFechaHora.invalid" (click)="siguiente()">CONFIRMAR PEDIDO</button>
+            </div>
         </div>
     </form>
 </div>

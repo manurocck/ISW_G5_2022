@@ -6,18 +6,7 @@
     padding-inline: 2%;
 }
 
-p{ 
-    display: flex;
-    justify-content: center;
+.navegacion{
+    padding-inline: 5%;
 }
 
-.form-control{
-    color: #5d3a00; 
-    align-self: center;
-}
-
-@media only screen and (max-width: 768) {
-    .btn-selectivo{
-        width: 100%;
-    }
-}
