@@ -4,11 +4,9 @@ export interface Ciudad {
 }
 
 export const Ciudades: Ciudad[] = [
-    {Nombre: 'Cordoba', Id: 1},
-    {Nombre: 'Jesus María', Id: 2},
-    {Nombre: 'Alta Gracia', Id: 3},
-    {Nombre: 'Ascochinga', Id: 4},
-    {Nombre: 'Rio Ceballos', Id: 5},
+    {Nombre: 'Córdoba', Id: 1},
+    {Nombre: 'San Francisco', Id: 2},
+    {Nombre: 'Villa General Belgrano', Id: 3},
 ]
 
 export class Direccion {

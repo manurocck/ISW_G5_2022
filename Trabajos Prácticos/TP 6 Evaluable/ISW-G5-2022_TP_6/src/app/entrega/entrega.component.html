@@ -12,6 +12,12 @@
                 <option value="fechaYhora">Elegir fecha y hora</option>
             </select>
         </div>
+        <div class="row justify-content-between" *ngIf="seleccionForma == 'loAntesPosible'">
+            <button class="btn btn-siguiente" name="siguiente float-end" type="button" id="siguiente" 
+            (click)="volver()">Volver</button>
+            <button class="btn btn-siguiente" name="siguiente float-end" type="button" id="siguiente" 
+            (click)="siguiente()">Siguiente</button>
+        </div>
     </form>
     <!-- campo FECHA Y HORA -->
     <form [formGroup]='FormFechaHora' class="tarjeta" *ngIf="seleccionForma == 'fechaYhora'">
@@ -37,6 +43,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row justify-content-between">
+            <button class="btn btn-siguiente" name="siguiente float-end" type="button" id="siguiente" 
+            (click)="volver()">Volver</button>
+            <button class="btn btn-siguiente" name="siguiente float-end" type="button"
+                [disabled]="FormFechaHora.invalid" (click)="siguiente()">Siguiente</button>
         </div>
     </form>
 </div>

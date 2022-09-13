@@ -18,8 +18,7 @@ import {
 export class DireccionEnvioComponent implements OnInit {
   
   ItemCiudad = Ciudades;
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  
   }
   
   // COMUNICACIÓN CON EL COMPONENTE PRINCIPAL

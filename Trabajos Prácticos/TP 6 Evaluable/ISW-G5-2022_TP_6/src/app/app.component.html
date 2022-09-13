@@ -3,11 +3,13 @@
         <p>Realizar Pedido a</p>
         <h3>COMERCIO A</h3>
     </div>
-    <!--
-    -->
+
     <app-medio-de-pago (info)="ingresoMedioPago = $event; ingresoMedioPago.mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'P'"></app-medio-de-pago>
     <app-direccion-envio (info)="ingresoDireccion = $event; mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'D'"></app-direccion-envio>
-    <app-entrega (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'E'"></app-entrega>
+    <app-entrega (info)="ingresoEntrega = $event; ingresoEntrega.mostrar()" (estado)="estadoPedido = $event" *ngIf="estadoPedido == 'E'"></app-entrega>
     
-</div>
+    <div *ngIf="estadoPedido=='F'">
+        <h1>EL PEDIDO ESTÁ EN MARCHA</h1>
+    </div>
 
+</div>

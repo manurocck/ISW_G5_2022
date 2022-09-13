@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Direccion } from './models/direccion';
+import { FormaEntrega } from './models/formaentrega';
 import { MedioPago } from './models/medio-de-pago';
 
 @Component({
@@ -14,14 +15,16 @@ export class AppComponent {
   tiposEstadoPedido = {
     D: '(Direecion)',
     P: '(Pago)',
-    E: '(Entrega)'
+    E: '(Entrega)',
+    F: '(Final)'
   };
   
-  estadoPedido = 'P';
+  estadoPedido = 'D';
 
 
   ingresoDireccion = new Direccion();
   ingresoMedioPago = new MedioPago();
+  ingresoEntrega = new FormaEntrega();
   
   mostrar(){
     console.log(this.ingresoDireccion.Calle);

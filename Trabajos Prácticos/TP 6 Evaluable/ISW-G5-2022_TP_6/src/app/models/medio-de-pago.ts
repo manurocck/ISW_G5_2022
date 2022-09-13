@@ -6,7 +6,7 @@ export class MedioPago{
 
     monto = 0;
     
-    tipo = 'X'; // 'Tarjeta':tarjeta 'Efectivo':efectivo 'X':default
+    tipo = 'Efectivo'; // 'Tarjeta':tarjeta 'Efectivo':efectivo
 
     mostrar(){
         switch(this.tipo){
@@ -20,7 +20,7 @@ export class MedioPago{
                 console.log(this.monto);
                 break;
             default:
-                console.log('Todavía no ingresó ná');
+                console.log('No tendría que entrar acá');
                 break
         }
         return;

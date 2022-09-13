@@ -18,7 +18,6 @@ export class MedioDePagoComponent implements OnInit {
 
   seleccionado = 'Efectivo';
   submitted = false;
-  Mensaje = "Revisar los datos ingresados..."
 
   //PERSISTENCIA - COMUNICACION CON COMPONENTE PRINCIPAL
   //NAVEGACIÓN DE BOTONES
@@ -49,7 +48,7 @@ export class MedioDePagoComponent implements OnInit {
   }
 
   volver(){
-    this.estado.emit('D');
+    this.estado.emit('E');
   }
 
 
