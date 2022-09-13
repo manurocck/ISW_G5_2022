@@ -38,8 +38,12 @@
                     </label>
                     <input type="text" class="form-control row" formControlName="Hora"
                     [ngClass]="validezCampo('Hora')">
-                    <div class="text-danger" *ngIf="validezCampo('Hora')">
+                    <div class="text-danger" *ngIf="errorDeRequerido('Hora')">
                         Dato Requerido.
+                    </div>
+                    <div class="text-danger"
+                        *ngIf="errorDePatron('Hora')">
+                        Formato HH:MM, de 8 hasta 23
                     </div>
                 </div>
             </div>

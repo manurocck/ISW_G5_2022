@@ -89,20 +89,22 @@ export class EntregaComponent implements OnInit {
   FormFechaHora = new FormGroup({
     Fecha: new FormControl('',[
       Validators.required,
-      Validators.maxLength(7),
-      Validators.minLength(7),
+      Validators.maxLength(10),
+      Validators.minLength(10),
+      Validators.pattern(
+        '(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](20)[2-3][0-9]'
+      ),
     ]),
     Hora: new FormControl('',[
       Validators.required,
-      Validators.maxLength(3),
-      Validators.minLength(3),
+      Validators.maxLength(5),
+      Validators.minLength(5),
       Validators.pattern(
-        '0[0-9]|1[0-9]|2[0-3]\:[0-5][0-9]'
+        '(0[89]|1[0-9]|2[0-2])[-:]([0-5][0-9])'
       )
     ])
   });
   
- 
 
 }
 
