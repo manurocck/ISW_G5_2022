@@ -56,7 +56,7 @@
                         *ngIf="errorDeRequerido('NumeroTarjeta')">Dato Requerido.</div>
                     
                     <div class="text-danger" 
-                        *ngIf="errorDePatron('NumeroTarjeta')">Solo números : XXXX-XXXX-XXXX-XXXX </div>                       
+                        *ngIf="errorDePatron('NumeroTarjeta') || luhnAlgorithm('NumeroTarjeta')">Tarjeta inválida: Deber 16 dígitos sin espacios </div>                       
                 </div>
 
                 <!--campo VENCIMIENTO y CVC-->
