@@ -4,9 +4,10 @@
     padding-bottom: 2%;
     width: 70%;
     border: 1px solid black;
+    border-radius: 30px;
 }@media only screen and (max-width: 768px){
     .container{ 
-    width: 90%;
+        width: 90%;
     }
 }
 
@@ -18,4 +19,5 @@
     clear: left; 
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 20px;
 }

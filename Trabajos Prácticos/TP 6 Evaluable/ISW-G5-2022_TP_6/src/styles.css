@@ -1,4 +1,8 @@
 /** ESTILO DE ESTRUCTURA **/
+body{
+    background-image: url('src/assets/bg.jpg');
+    background-size:cover;
+}
 .padding-2{
     padding: 2%;
 }

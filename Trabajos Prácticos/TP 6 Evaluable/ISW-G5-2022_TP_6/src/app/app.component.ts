@@ -19,7 +19,7 @@ export class AppComponent {
     F: '(Final)'
   };
   
-  estadoPedido = 'E';
+  estadoPedido = 'D';
 
 
   ingresoDireccion = new Direccion();
