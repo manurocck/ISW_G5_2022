@@ -35,7 +35,7 @@ export class MedioDePagoComponent implements OnInit {
       this.info.emit(this.medioPago);
       this.estado.emit('E');
     }//Seleccionó tarjeta y la formTarjeta es válida
-    else if((this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid && this.luhnAlgorithm(this.FormRegistroTarjeta.value.NumeroTarjeta)){
+    else if((this.seleccionado == 'Tarjeta') && !this.FormRegistroTarjeta.invalid && this.luhnAlgorithm(this.FormRegistroTarjeta.value.NumeroTarjeta) && this.validateExpiry(this.FormRegistroTarjeta.value.Vencimiento)){
       this.medioPago.nombreApellido = this.FormRegistroTarjeta.value.NombreApellido;
       this.medioPago.numeroTarjeta  = this.FormRegistroTarjeta.value.NumeroTarjeta;
       this.medioPago.vencimiento    = this.FormRegistroTarjeta.value.Vencimiento;
@@ -161,7 +161,7 @@ export class MedioDePagoComponent implements OnInit {
     Vencimiento: new FormControl('',[
       Validators.required,
       Validators.pattern(
-        '(0[1-9]|1[012])[-/](20)[2-3][0-9]'
+        '(0[1-9]|1[012])[-/][2-3][0-9]'
       ),
     ]),
     CodigoSeguridad: new FormControl('',[
@@ -170,6 +170,21 @@ export class MedioDePagoComponent implements OnInit {
       Validators.minLength(3),
     ])
   });
+
+  validateExpiry (input:any) {
+    // ensure basic format is correct
+    if (input.match(/^(0\d|1[0-2])\/\d{2}$/)) {
+      const {0: month, 1: year} = input.split("/");
+  
+      // get midnight of first day of the next month
+      var correctYear = parseInt("20" + year);
+      const expiry = new Date(correctYear, month);
+      const current = new Date();
+      
+      return expiry.getTime() > current.getTime();
+      
+    } else return false;
+  }
 
 
 }
